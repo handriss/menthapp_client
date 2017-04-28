@@ -6,7 +6,6 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.smarthome.menthacontrols.menthapp_client_new.R;
-import com.smarthome.menthacontrols.menthapp_client_new.request.RequestHandler;
 
 
 public class LivingRoomActivity extends AppCompatActivity {
@@ -15,8 +14,6 @@ public class LivingRoomActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        RequestHandler handler = new RequestHandler(this);
 
     }
 
