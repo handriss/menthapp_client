@@ -1,3 +1,15 @@
 <resources>
-    <string name="app_name">Menthapp_client_new</string>
+    <string name="app_name">MenthaApp</string>
+    <string name="living_room_button">Nappali</string>
+    <string name="bedroom_button">Háló</string>
+    <string name="upstairs_button">Emelet</string>
+    <string name="garage_button">Garázs</string>
+    <string name="utilities_button">Gépészet</string>
+
+
+    <string name="livingroom_description">Nappali</string>
+    <string name="bedroom_description">Háló</string>
+    <string name="garage_description">Garázs</string>
+    <string name="upstairs_description">Emelet</string>
+    <string name="utilites_description">Gépészet</string>
 </resources>

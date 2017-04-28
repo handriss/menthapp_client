@@ -4,16 +4,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.smarthome.menthacontrols.menthaapp.activities.LivingRoomActivity">
+    tools:context="com.smarthome.menthacontrols.menthaapp.activities.BedRoomActivity">
+
 
     <Button
         android:id="@+id/buttonBedroom"
         android:layout_width="160dp"
         android:layout_height="70dp"
         android:layout_marginEnd="24dp"
-        android:layout_marginRight="24dp"
+        android:layout_marginRight="26dp"
         android:layout_marginTop="8dp"
-        android:background="@android:color/darker_gray"
+        android:background="@android:color/holo_blue_dark"
         android:onClick="changeToBedroom"
         android:text="@string/bedroom_button"
         app:layout_constraintRight_toLeftOf="@+id/buttonUpstairs"
@@ -49,7 +50,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/button5"
+        android:id="@+id/buttonUtilities"
         android:layout_width="160dp"
         android:layout_height="70dp"
         android:layout_marginLeft="24dp"
@@ -62,13 +63,13 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/button6"
+        android:id="@+id/buttonLivingroom"
         android:layout_width="160dp"
         android:layout_height="70dp"
         android:layout_marginEnd="24dp"
         android:layout_marginRight="24dp"
         android:layout_marginTop="8dp"
-        android:background="@android:color/holo_blue_dark"
+        android:background="@android:color/darker_gray"
         android:onClick="changeToLivingroom"
         android:text="@string/living_room_button"
         app:layout_constraintRight_toLeftOf="@+id/buttonBedroom"
@@ -81,12 +82,11 @@
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginTop="0dp"
-        android:contentDescription="@string/livingroom_description"
+        android:contentDescription="@string/bedroom_description"
         android:scaleType="fitXY"
-        android:src="@drawable/livingroom"
+        android:src="@drawable/bedroom"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/buttonUpstairs" />
-
 
 </android.support.constraint.ConstraintLayout>
