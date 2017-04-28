@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.smarthome.menthacontrols.menthapp_client_new.R;
+import com.smarthome.menthacontrols.menthapp_client_new.request.ConnectionChecker;
 
 
 public class LivingRoomActivity extends AppCompatActivity {
@@ -14,6 +15,9 @@ public class LivingRoomActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        ConnectionChecker connectionChecker = new ConnectionChecker(this);
+        connectionChecker.refreshConnectionStatus();
 
     }
 

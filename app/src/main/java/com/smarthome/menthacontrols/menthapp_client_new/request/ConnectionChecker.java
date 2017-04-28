@@ -1,26 +1,37 @@
 package com.smarthome.menthacontrols.menthapp_client_new.request;
 
 
-import com.smarthome.menthacontrols.menthapp_client_new.model.ConnectionStatus;
+import android.content.Context;
+import android.net.ConnectivityManager;
+import android.util.Log;
 
 public class ConnectionChecker {
 
-    private ConnectionStatus connectionStatus;
+    public enum ConnectionStatus {NOMINAL, INTERNET, NO_CONNECTION}
 
-    public ConnectionChecker() {
+    private static final String TAG = "ConnectionChecker";
+    private ConnectionStatus connectionStatus;
+    private Context context;
+
+    public ConnectionChecker(Context context) {
         this.connectionStatus = ConnectionStatus.NO_CONNECTION;
+        this.context = context;
     }
 
     public void refreshConnectionStatus(){
 
         if(this.getServiceStatus()){
             this.connectionStatus = ConnectionStatus.NOMINAL;
+            Log.d(TAG, "Connection status is NOMINAL");
+
         }else if(this.getInternetStatus()){
             this.connectionStatus = ConnectionStatus.INTERNET;
-        }else if(this.getNetworkStatus()){
-            this.connectionStatus = ConnectionStatus.NETWORK;
+            Log.d(TAG, "Connection status is INTERNET");
+
         }else{
             this.connectionStatus = ConnectionStatus.NO_CONNECTION;
+            Log.d(TAG, "Connection status is NO_CONNECTION");
+
         }
     }
 
@@ -29,10 +40,10 @@ public class ConnectionChecker {
     }
 
     private Boolean getInternetStatus(){
-        return false;
+
+        ConnectivityManager cm = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
+
+        return cm.getActiveNetworkInfo() != null;
     }
 
-    private Boolean getNetworkStatus(){
-        return false;
-    }
 }
