@@ -8,6 +8,7 @@ import android.widget.Button;
 
 import com.smarthome.menthacontrols.menthapp_client_new.R;
 import com.smarthome.menthacontrols.menthapp_client_new.model.ColoredButton;
+import com.smarthome.menthacontrols.menthapp_client_new.model.WidgetButton;
 import com.smarthome.menthacontrols.menthapp_client_new.request.RequestHandler;
 
 
@@ -16,6 +17,8 @@ public class LivingRoomActivity extends AppCompatActivity implements View.OnClic
     ColoredButton btnRed;
     ColoredButton btnGreen;
     Button btnSwitch;
+
+    WidgetButton btnFirst;
 
     boolean switched = false;
 
@@ -31,14 +34,10 @@ public class LivingRoomActivity extends AppCompatActivity implements View.OnClic
     }
 
     private void initButtons() {
-        btnRed = (ColoredButton) findViewById(R.id.btnRed);
-        btnGreen = (ColoredButton) findViewById(R.id.btnGreen);
 
-        btnRed.setIsRed(true);
-        btnGreen.setIsRed(false);
+        btnFirst = (WidgetButton) findViewById(R.id.btnFirst);
+        btnFirst.setOnClickListener(this);
 
-        btnSwitch = (Button) findViewById(R.id.btnSwitch);
-        btnSwitch.setOnClickListener(this);
     }
 
     public void changeToBedroom(View view){
@@ -72,9 +71,11 @@ public class LivingRoomActivity extends AppCompatActivity implements View.OnClic
 
     @Override
     public void onClick(View v) {
-        btnRed.setIsRed(switched);
-        btnGreen.setIsRed(!switched);
 
-        switched = !switched;
+        btnFirst.toggleButton();
+//        btnRed.setIsRed(switched);
+//        btnGreen.setIsRed(!switched);
+//
+//        switched = !switched;
     }
 }

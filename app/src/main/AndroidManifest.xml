@@ -19,7 +19,7 @@
         <activity android:name=".activities.BedRoomActivity" />
         <activity android:name=".activities.UpstairsActivity" />
         <activity android:name=".activities.GarageActivity" />
-        <activity android:name=".activities.UtilitiesActivity"></activity>
+        <activity android:name=".activities.UtilitiesActivity"/>
 
     </application>
 
