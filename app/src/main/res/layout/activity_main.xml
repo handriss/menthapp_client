@@ -89,12 +89,10 @@
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp" />
 
-    <!--<com.example.buttontest.ColoredButton-->
     <com.smarthome.menthacontrols.menthapp_client_new.model.ColoredButton
         android:id="@+id/btnRed"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Red"
         app:layout_constraintBaseline_toBaselineOf="@+id/btnGreen"
         tools:layout_constraintBaseline_creator="1"
         tools:layout_constraintLeft_creator="1"
@@ -105,7 +103,6 @@
         android:id="@+id/btnGreen"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Green"
         tools:layout_constraintTop_creator="1"
         tools:layout_constraintLeft_creator="1"
         app:layout_constraintLeft_toLeftOf="@+id/btnRed"

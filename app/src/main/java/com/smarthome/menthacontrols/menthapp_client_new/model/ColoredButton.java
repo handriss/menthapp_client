@@ -29,7 +29,6 @@ public class ColoredButton extends AppCompatButton {
 
     private void changeBgColor() {
         setBackgroundResource(isRed ? R.drawable.flamp_yel : R.drawable.flamp);
-        setText(isRed? "Red" : "Green");
     }
 
 }
