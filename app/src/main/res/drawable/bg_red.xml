@@ -2,8 +2,8 @@
 <!-- Name this file bg_red.xml -->
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <item android:state_pressed="true"><color android:color="#ff0000" />
-    </item>
+    <item android:state_pressed="true"><color android:color="#ff0000" /></item>
+    <!--<item android:state_pressed="true"><bitmap android:src="@drawable/flamp_yel"/></item>-->
     <item android:drawable="@android:drawable/btn_default"></item>
 
 </selector>
