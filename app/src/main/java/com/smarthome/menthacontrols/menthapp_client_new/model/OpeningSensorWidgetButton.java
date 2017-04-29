@@ -16,13 +16,16 @@ public class OpeningSensorWidgetButton extends AppCompatButton {
 
     public OpeningSensorWidgetButton(Context context) {
         super(context);
+        this.setBackgroundResource(offIcon);
     }
 
     public OpeningSensorWidgetButton(Context context, AttributeSet attrs) {
         super(context, attrs);
+        this.setBackgroundResource(offIcon);
     }
 
     public OpeningSensorWidgetButton(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
+        this.setBackgroundResource(offIcon);
     }
 }

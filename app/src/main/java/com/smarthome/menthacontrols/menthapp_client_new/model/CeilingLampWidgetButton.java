@@ -17,14 +17,17 @@ public class CeilingLampWidgetButton extends AppCompatButton {
 
     public CeilingLampWidgetButton(Context context) {
         super(context);
+        this.setBackgroundResource(offIcon);
     }
 
     public CeilingLampWidgetButton(Context context, AttributeSet attrs) {
         super(context, attrs);
+        this.setBackgroundResource(offIcon);
     }
 
     public CeilingLampWidgetButton(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
+        this.setBackgroundResource(offIcon);
     }
 
     public void toggleButton(){

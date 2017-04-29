@@ -16,14 +16,17 @@ public class FanWidgetButton extends AppCompatButton {
 
     public FanWidgetButton(Context context) {
         super(context);
+        this.setBackgroundResource(offIcon);
     }
 
     public FanWidgetButton(Context context, AttributeSet attrs) {
         super(context, attrs);
+        this.setBackgroundResource(offIcon);
     }
 
     public FanWidgetButton(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
+        this.setBackgroundResource(offIcon);
     }
 
     public void toggleButton(){

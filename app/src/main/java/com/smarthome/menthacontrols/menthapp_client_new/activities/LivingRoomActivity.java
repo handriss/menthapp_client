@@ -3,28 +3,31 @@ package com.smarthome.menthacontrols.menthapp_client_new.activities;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
 import com.smarthome.menthacontrols.menthapp_client_new.R;
+import com.smarthome.menthacontrols.menthapp_client_new.model.CeilingLampWidgetButton;
+import com.smarthome.menthacontrols.menthapp_client_new.model.FanWidgetButton;
+import com.smarthome.menthacontrols.menthapp_client_new.model.OpeningSensorWidgetButton;
 import com.smarthome.menthacontrols.menthapp_client_new.model.WallLampWidgetButton;
-import com.smarthome.menthacontrols.menthapp_client_new.request.RequestHandler;
 
 
 public class LivingRoomActivity extends AppCompatActivity implements View.OnClickListener {
 
-    Button btnSwitch;
+    private static final String TAG = "LivingRoomActivity";
 
     WallLampWidgetButton btnFirst;
+    CeilingLampWidgetButton btnSecond;
+    FanWidgetButton btnThird;
+    OpeningSensorWidgetButton btnFourth;
 
-    boolean switched = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        RequestHandler handler = new RequestHandler(this);
 
         initButtons();
 
@@ -34,6 +37,15 @@ public class LivingRoomActivity extends AppCompatActivity implements View.OnClic
 
         btnFirst = (WallLampWidgetButton) findViewById(R.id.btnFirst);
         btnFirst.setOnClickListener(this);
+
+        btnSecond = (CeilingLampWidgetButton) findViewById(R.id.btnSecond);
+        btnSecond.setOnClickListener(this);
+
+        btnThird = (FanWidgetButton) findViewById(R.id.btnThird);
+        btnThird.setOnClickListener(this);
+
+        btnFourth = (OpeningSensorWidgetButton) findViewById(R.id.btnFourth);
+        btnFourth.setOnClickListener(this);
 
     }
 
@@ -67,9 +79,15 @@ public class LivingRoomActivity extends AppCompatActivity implements View.OnClic
     }
 
     @Override
-    public void onClick(View v) {
+    public void onClick(View view) {
 
-        btnFirst.toggleButton();
+        Log.d(TAG, view.toString());
+
+
+//        WallLampWidgetButton button = (WallLampWidgetButton) view;
+//        button.toggleButton();
+
+//        btnFirst.toggleButton();
 //        btnRed.setIsRed(switched);
 //        btnGreen.setIsRed(!switched);
 //
