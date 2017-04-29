@@ -7,18 +7,15 @@ import android.view.View;
 import android.widget.Button;
 
 import com.smarthome.menthacontrols.menthapp_client_new.R;
-import com.smarthome.menthacontrols.menthapp_client_new.model.ColoredButton;
-import com.smarthome.menthacontrols.menthapp_client_new.model.WidgetButton;
+import com.smarthome.menthacontrols.menthapp_client_new.model.WallLampWidgetButton;
 import com.smarthome.menthacontrols.menthapp_client_new.request.RequestHandler;
 
 
 public class LivingRoomActivity extends AppCompatActivity implements View.OnClickListener {
 
-    ColoredButton btnRed;
-    ColoredButton btnGreen;
     Button btnSwitch;
 
-    WidgetButton btnFirst;
+    WallLampWidgetButton btnFirst;
 
     boolean switched = false;
 
@@ -35,7 +32,7 @@ public class LivingRoomActivity extends AppCompatActivity implements View.OnClic
 
     private void initButtons() {
 
-        btnFirst = (WidgetButton) findViewById(R.id.btnFirst);
+        btnFirst = (WallLampWidgetButton) findViewById(R.id.btnFirst);
         btnFirst.setOnClickListener(this);
 
     }

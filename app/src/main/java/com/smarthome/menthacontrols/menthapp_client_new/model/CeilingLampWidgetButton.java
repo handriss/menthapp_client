@@ -6,38 +6,36 @@ import android.support.v7.widget.AppCompatButton;
 import android.util.AttributeSet;
 
 import com.smarthome.menthacontrols.menthapp_client_new.R;
+import com.smarthome.menthacontrols.menthapp_client_new.model.enums.ButtonStatus;
 
-public class WidgetButton extends AppCompatButton {
-
-    public enum ButtonStatus {ON, OFF};
+public class CeilingLampWidgetButton extends AppCompatButton {
 
     private ButtonStatus buttonStatus = ButtonStatus.OFF;
+    private static final int onIcon = R.drawable.mlamp_yel;
+    private static final int offIcon = R.drawable.mlamp;
 
-    public WidgetButton(Context context) {
+
+    public CeilingLampWidgetButton(Context context) {
         super(context);
-        this.setBackgroundResource(R.drawable.flamp);
     }
 
-    public WidgetButton(Context context, AttributeSet attrs) {
+    public CeilingLampWidgetButton(Context context, AttributeSet attrs) {
         super(context, attrs);
-        this.setBackgroundResource(R.drawable.flamp);
     }
 
-    public WidgetButton(Context context, AttributeSet attrs, int defStyleAttr) {
+    public CeilingLampWidgetButton(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
-        this.setBackgroundResource(R.drawable.flamp);
     }
 
     public void toggleButton(){
 
         if(this.buttonStatus == ButtonStatus.ON){
             this.buttonStatus = ButtonStatus.OFF;
-            setBackgroundResource(R.drawable.flamp);
+            setBackgroundResource(offIcon);
         }else if(this.buttonStatus == ButtonStatus.OFF){
             this.buttonStatus = ButtonStatus.ON;
-            setBackgroundResource(R.drawable.flamp_yel);
+            setBackgroundResource(onIcon);
         }
 
     }
-
 }
