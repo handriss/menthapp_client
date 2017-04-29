@@ -11,6 +11,7 @@ import com.smarthome.menthacontrols.menthapp_client_new.model.CeilingLampWidgetB
 import com.smarthome.menthacontrols.menthapp_client_new.model.FanWidgetButton;
 import com.smarthome.menthacontrols.menthapp_client_new.model.OpeningSensorWidgetButton;
 import com.smarthome.menthacontrols.menthapp_client_new.model.WallLampWidgetButton;
+import com.smarthome.menthacontrols.menthapp_client_new.request.RequestHandler;
 
 
 public class LivingRoomActivity extends AppCompatActivity implements View.OnClickListener {
@@ -29,6 +30,8 @@ public class LivingRoomActivity extends AppCompatActivity implements View.OnClic
         setContentView(R.layout.activity_main);
 
         initButtons();
+
+        RequestHandler requestHandler = new RequestHandler();
 
     }
 
