@@ -52,13 +52,34 @@ public class RequestHandler extends AsyncTask<String, Void, String>{
 
             reader = new BufferedReader(new InputStreamReader(connection.getInputStream()));
 
+            String line;
+            while(null != (line = reader.readLine())){
+                result.append(line).append("\n");
+            }
+
+            downloadStatus = DownloadStatus.OK;
+            return result.toString();
+
         }catch(MalformedURLException e){
             Log.e(TAG, "doInBackground: Invalid URL" + e.getMessage());
         }catch(IOException e){
             Log.e(TAG, "doInBackground: IO Exception reading data " + e.getMessage() );
         }catch(SecurityException e){
             Log.e(TAG, "doInBackground: Security exception. Needs permission? " +e.getMessage());
+        } finally {
+            if(connection != null){
+                connection.disconnect();
+            }
+            if(reader != null){
+                try{
+                    reader.close();
+                }catch(IOException e){
+                    Log.e(TAG, "doInBackground: Error closing stream, " + e.getMessage());
+                }
+            }
         }
+
+        downloadStatus = DownloadStatus.FAILED_OR_EMPTY;
 
         return null;
     }
