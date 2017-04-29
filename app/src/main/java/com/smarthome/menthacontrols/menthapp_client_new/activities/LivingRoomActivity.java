@@ -5,7 +5,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.Button;
 
 import com.smarthome.menthacontrols.menthapp_client_new.R;
 import com.smarthome.menthacontrols.menthapp_client_new.model.CeilingLampWidgetButton;
@@ -81,16 +80,25 @@ public class LivingRoomActivity extends AppCompatActivity implements View.OnClic
     @Override
     public void onClick(View view) {
 
-        Log.d(TAG, view.toString());
 
+        if(view instanceof WallLampWidgetButton){
+            WallLampWidgetButton button = (WallLampWidgetButton) view;
+            button.toggleButton();
 
-//        WallLampWidgetButton button = (WallLampWidgetButton) view;
-//        button.toggleButton();
+        }else if(view instanceof CeilingLampWidgetButton){
+            CeilingLampWidgetButton button = (CeilingLampWidgetButton) view;
+            button.toggleButton();
 
-//        btnFirst.toggleButton();
-//        btnRed.setIsRed(switched);
-//        btnGreen.setIsRed(!switched);
-//
-//        switched = !switched;
+        }else if(view instanceof FanWidgetButton){
+            FanWidgetButton button = (FanWidgetButton) view;
+            button.toggleButton();
+
+        }else if(view instanceof OpeningSensorWidgetButton){
+            OpeningSensorWidgetButton button = (OpeningSensorWidgetButton) view;
+
+        }else{
+            Log.d(TAG, "Unknown widget");
+        }
+
     }
 }
