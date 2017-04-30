@@ -7,8 +7,9 @@ import android.util.AttributeSet;
 
 import com.smarthome.menthacontrols.menthapp_client_new.R;
 import com.smarthome.menthacontrols.menthapp_client_new.model.enums.ButtonStatus;
+import com.smarthome.menthacontrols.menthapp_client_new.request.RequestHandler;
 
-public class CeilingLampWidgetButton extends AppCompatButton {
+public class CeilingLampWidgetButton extends AppCompatButton implements RequestHandler.ButtonStatusInitializer {
 
     private ButtonStatus buttonStatus = ButtonStatus.OFF;
     private static final int onIcon = R.drawable.mlamp_yel;
@@ -30,6 +31,17 @@ public class CeilingLampWidgetButton extends AppCompatButton {
         this.setBackgroundResource(offIcon);
     }
 
+    public void setButtonStatus(ButtonStatus buttonStatus) {
+
+        this.buttonStatus = buttonStatus;
+
+        if(this.buttonStatus == ButtonStatus.ON){
+            setBackgroundResource(onIcon);
+        }else if(this.buttonStatus == ButtonStatus.OFF){
+            setBackgroundResource(offIcon);
+        }
+    }
+
     public void toggleButton(){
 
         if(this.buttonStatus == ButtonStatus.ON){
@@ -40,5 +52,16 @@ public class CeilingLampWidgetButton extends AppCompatButton {
             setBackgroundResource(onIcon);
         }
 
+    }
+
+    @Override
+    public void initializeStatus(Boolean status) {
+        if(status){
+            this.buttonStatus = ButtonStatus.ON;
+            setBackgroundResource(onIcon);
+        }else{
+            this.buttonStatus = ButtonStatus.OFF;
+            setBackgroundResource(offIcon);
+        }
     }
 }

@@ -7,8 +7,9 @@ import android.util.AttributeSet;
 
 import com.smarthome.menthacontrols.menthapp_client_new.R;
 import com.smarthome.menthacontrols.menthapp_client_new.model.enums.ButtonStatus;
+import com.smarthome.menthacontrols.menthapp_client_new.request.RequestHandler;
 
-public class OpeningSensorWidgetButton extends AppCompatButton {
+public class OpeningSensorWidgetButton extends AppCompatButton implements RequestHandler.ButtonStatusInitializer {
 
     private ButtonStatus buttonStatus = ButtonStatus.OFF;
     private static final int onIcon = R.drawable.os_red;
@@ -27,5 +28,16 @@ public class OpeningSensorWidgetButton extends AppCompatButton {
     public OpeningSensorWidgetButton(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         this.setBackgroundResource(offIcon);
+    }
+
+    @Override
+    public void initializeStatus(Boolean status) {
+        if(status){
+            this.buttonStatus = ButtonStatus.ON;
+            setBackgroundResource(onIcon);
+        }else{
+            this.buttonStatus = ButtonStatus.OFF;
+            setBackgroundResource(offIcon);
+        }
     }
 }

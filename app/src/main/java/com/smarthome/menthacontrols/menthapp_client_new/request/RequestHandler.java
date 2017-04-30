@@ -1,7 +1,12 @@
 package com.smarthome.menthacontrols.menthapp_client_new.request;
 
 import android.os.AsyncTask;
+import android.os.Build;
+import android.support.annotation.RequiresApi;
 import android.util.Log;
+
+import com.smarthome.menthacontrols.menthapp_client_new.model.WallLampWidgetButton;
+import com.smarthome.menthacontrols.menthapp_client_new.model.enums.DownloadStatus;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -10,20 +15,45 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 
-enum DownloadStatus{ IDLE, PROCESSING, NOT_INITIALISED, FAILED_OR_EMPTY, OK}
 
 public class RequestHandler extends AsyncTask<String, Void, String>{
 
     private static final String TAG = "RequestHandler";
     private DownloadStatus downloadStatus;
+    private final WallLampWidgetButton callback;
 
-    public RequestHandler() {
-        this.downloadStatus = DownloadStatus.IDLE;
+    public interface OnDownloadComplete {
+        void onDownloadComplete(String data, DownloadStatus status);
     }
 
+    public interface ButtonStatusInitializer{
+        void initializeStatus(Boolean status);
+    }
+
+    public RequestHandler(WallLampWidgetButton callback) {
+        this.downloadStatus = DownloadStatus.IDLE;
+        this.callback = callback;
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     @Override
     protected void onPostExecute(String s) {
-        super.onPostExecute(s);
+
+        Log.d(TAG, "onPostExecute: parameter = " + s);
+
+        if(callback != null){
+            Float result = Float.valueOf(s);
+            Log.d(TAG, "onPostExecute: " + s + " " + Float.valueOf(s));
+            
+            if(result == 80){
+                callback.initializeStatus(true);
+            }else{
+                callback.initializeStatus(false);
+            }
+
+        }
+        Log.d(TAG, "onPostExecute: ends");
+
     }
 
     @Override
@@ -58,6 +88,7 @@ public class RequestHandler extends AsyncTask<String, Void, String>{
             }
 
             downloadStatus = DownloadStatus.OK;
+            Log.d(TAG, "doInBackground: " + result.toString());
             return result.toString();
 
         }catch(MalformedURLException e){
