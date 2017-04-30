@@ -33,7 +33,7 @@ public class LivingRoomActivity extends AppCompatActivity implements View.OnClic
         initButtons();
 
         RequestHandler requestHandler = new RequestHandler(btnFirst);
-        requestHandler.execute("http://mcss.blue:8080/bedroom/p_oli_33");
+        requestHandler.execute("http://mcss.blue:8080/bedroom/p_oli_33", "cica");
     }
 
     private void initButtons() {

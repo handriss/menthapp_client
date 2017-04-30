@@ -59,6 +59,8 @@ public class RequestHandler extends AsyncTask<String, Void, String>{
     @Override
     protected String doInBackground(String... params) {
 
+        Log.d(TAG, "doInBackground: " + params[1]);
+
         HttpURLConnection connection = null;
         BufferedReader reader = null;
 

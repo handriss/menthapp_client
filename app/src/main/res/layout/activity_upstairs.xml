@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.smarthome.menthacontrols.menthaapp.activities.UpstairsActivity">
+    tools:context="com.smarthome.menthacontrols.menthapp_client_new.activities.UpstairsActivity">
 
     <Button
         android:id="@+id/buttonBedroom"
