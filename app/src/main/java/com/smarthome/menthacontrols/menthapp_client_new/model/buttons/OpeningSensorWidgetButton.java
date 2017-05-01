@@ -1,4 +1,4 @@
-package com.smarthome.menthacontrols.menthapp_client_new.model;
+package com.smarthome.menthacontrols.menthapp_client_new.model.buttons;
 
 
 import android.content.Context;
@@ -9,7 +9,7 @@ import com.smarthome.menthacontrols.menthapp_client_new.R;
 import com.smarthome.menthacontrols.menthapp_client_new.model.enums.ButtonStatus;
 import com.smarthome.menthacontrols.menthapp_client_new.request.RequestSender;
 
-public class OpeningSensorWidgetButton extends AppCompatButton implements RequestSender.ButtonStatusInitializer {
+public class OpeningSensorWidgetButton extends AppCompatButton implements RequestSender.ButtonCallbackHandler {
 
     private ButtonStatus buttonStatus = ButtonStatus.OFF;
     private static final int onIcon = R.drawable.os_red;

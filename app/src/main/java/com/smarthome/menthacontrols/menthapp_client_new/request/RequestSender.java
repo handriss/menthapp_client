@@ -5,7 +5,6 @@ import android.os.Build;
 import android.support.annotation.RequiresApi;
 import android.util.Log;
 
-import com.smarthome.menthacontrols.menthapp_client_new.model.TransferObject;
 import com.smarthome.menthacontrols.menthapp_client_new.model.enums.DownloadStatus;
 
 import java.io.BufferedReader;
@@ -20,18 +19,18 @@ public class RequestSender extends AsyncTask<String, Void, String>{
 
     private static final String TAG = "RequestSender";
     private DownloadStatus downloadStatus;
-    private ButtonStatusInitializer callback;
+    private OnDownloadCompleteHandler callback;
 
 
-    public interface ButtonStatusInitializer{
-        void updateStatus(Boolean status);
+    public interface OnDownloadCompleteHandler{
+        void onDownloadComplete(String data, DownloadStatus status);
     }
 
     public RequestSender() {
         this.downloadStatus = DownloadStatus.IDLE;
     }
 
-    public void setCallback(ButtonStatusInitializer callback){
+    public void setCallback(OnDownloadCompleteHandler callback){
         this.callback = callback;
     }
 
@@ -41,8 +40,8 @@ public class RequestSender extends AsyncTask<String, Void, String>{
 
         Log.d(TAG, "onPostExecute: parameter = " + s);
 
-        TransferObject transferObject = JsonParser.createTransferObjectFromJson(s);
-        callback.updateStatus(transferObject.getWidgetStatus());
+//        TransferObject transferObject = JsonParser.createTransferObjectFromJson(s);
+//        callback.onDownloadComplete(transferObject.getWidgetStatus());
 
 
 //        if(callback != null){

@@ -1,4 +1,4 @@
-package com.smarthome.menthacontrols.menthapp_client_new.model;
+package com.smarthome.menthacontrols.menthapp_client_new.model.buttons;
 
 import android.content.Context;
 import android.support.v7.widget.AppCompatButton;
@@ -9,7 +9,7 @@ import com.smarthome.menthacontrols.menthapp_client_new.model.enums.ButtonStatus
 import com.smarthome.menthacontrols.menthapp_client_new.request.RequestSender;
 
 
-public class FanWidgetButton extends AppCompatButton implements RequestSender.ButtonStatusInitializer {
+public class FanWidgetButton extends AppCompatButton implements RequestSender.ButtonCallbackHandler {
 
     private ButtonStatus buttonStatus = ButtonStatus.OFF;
     private static final int onIcon = R.drawable.vent_yel;

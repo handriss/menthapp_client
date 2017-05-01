@@ -129,7 +129,7 @@
         tools:layout_constraintLeft_creator="1"
         app:layout_constraintHorizontal_bias="1.0" />
 
-    <!--<com.smarthome.menthacontrols.menthapp_client_new.model.WallLampWidgetButton-->
+    <!--<com.smarthome.menthacontrols.menthapp_client_new.model.buttons.WallLampWidgetButton-->
         <!--android:id="@+id/btnFirst"-->
         <!--android:layout_width="23dp"-->
         <!--android:layout_height="23dp"-->
@@ -141,7 +141,7 @@
         <!--tools:layout_constraintBottom_creator="1"-->
         <!--tools:layout_constraintLeft_creator="1" />-->
 
-    <!--<com.smarthome.menthacontrols.menthapp_client_new.model.CeilingLampWidgetButton-->
+    <!--<com.smarthome.menthacontrols.menthapp_client_new.model.buttons.CeilingLampWidgetButton-->
         <!--android:id="@+id/btnSecond"-->
         <!--android:layout_width="23dp"-->
         <!--android:layout_height="23dp"-->
@@ -150,7 +150,7 @@
         <!--android:layout_marginTop="8dp"-->
         <!--app:layout_constraintTop_toBottomOf="@+id/btnThird" />-->
 
-    <!--<com.smarthome.menthacontrols.menthapp_client_new.model.FanWidgetButton-->
+    <!--<com.smarthome.menthacontrols.menthapp_client_new.model.buttons.FanWidgetButton-->
         <!--android:id="@+id/btnThird"-->
         <!--android:layout_width="23dp"-->
         <!--android:layout_height="23dp"-->
@@ -159,7 +159,7 @@
         <!--android:layout_marginTop="150dp"-->
         <!--app:layout_constraintTop_toBottomOf="@+id/buttonLivingRoom" />-->
 
-    <!--<com.smarthome.menthacontrols.menthapp_client_new.model.OpeningSensorWidgetButton-->
+    <!--<com.smarthome.menthacontrols.menthapp_client_new.model.buttons.OpeningSensorWidgetButton-->
         <!--android:id="@+id/btnFourth"-->
         <!--android:layout_width="23dp"-->
         <!--android:layout_height="23dp"-->
@@ -168,7 +168,7 @@
         <!--app:layout_constraintLeft_toRightOf="@+id/btnFirst"-->
         <!--android:layout_marginLeft="8dp" />-->
 
-    <com.smarthome.menthacontrols.menthapp_client_new.model.WallLampWidgetButton
+    <com.smarthome.menthacontrols.menthapp_client_new.model.buttons.WallLampWidgetButton
     android:id="@+id/btnFirst"
     android:layout_width="23dp"
     android:layout_height="23dp"
@@ -177,7 +177,7 @@
         app:layout_constraintTop_toTopOf="@+id/livingroom_background"
         android:layout_marginTop="135dp" />
 
-    <com.smarthome.menthacontrols.menthapp_client_new.model.WallLampWidgetButton
+    <com.smarthome.menthacontrols.menthapp_client_new.model.buttons.WallLampWidgetButton
         android:id="@+id/btnSecond"
     android:layout_width="23dp"
     android:layout_height="23dp"

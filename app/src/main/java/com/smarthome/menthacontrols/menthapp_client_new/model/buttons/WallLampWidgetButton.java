@@ -1,4 +1,4 @@
-package com.smarthome.menthacontrols.menthapp_client_new.model;
+package com.smarthome.menthacontrols.menthapp_client_new.model.buttons;
 
 
 import android.content.Context;
@@ -7,9 +7,9 @@ import android.util.AttributeSet;
 
 import com.smarthome.menthacontrols.menthapp_client_new.R;
 import com.smarthome.menthacontrols.menthapp_client_new.model.enums.ButtonStatus;
-import com.smarthome.menthacontrols.menthapp_client_new.request.RequestSender;
+import com.smarthome.menthacontrols.menthapp_client_new.request.ButtonDataGetter;
 
-public class WallLampWidgetButton extends AppCompatButton implements RequestSender.ButtonStatusInitializer {
+public class WallLampWidgetButton extends AppCompatButton implements ButtonDataGetter.ButtonCallbackHandler {
 
     private ButtonStatus buttonStatus = ButtonStatus.OFF;
     private static final int onIcon = R.drawable.flamp_yel;
