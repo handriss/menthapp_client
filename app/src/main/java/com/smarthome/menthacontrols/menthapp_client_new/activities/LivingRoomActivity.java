@@ -5,12 +5,16 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 
 import com.smarthome.menthacontrols.menthapp_client_new.R;
 import com.smarthome.menthacontrols.menthapp_client_new.model.buttons.CeilingLampWidgetButton;
 import com.smarthome.menthacontrols.menthapp_client_new.model.buttons.FanWidgetButton;
 import com.smarthome.menthacontrols.menthapp_client_new.model.buttons.OpeningSensorWidgetButton;
 import com.smarthome.menthacontrols.menthapp_client_new.model.buttons.WallLampWidgetButton;
+
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class LivingRoomActivity extends AppCompatActivity implements View.OnClickListener{
@@ -25,6 +29,8 @@ public class LivingRoomActivity extends AppCompatActivity implements View.OnClic
     FanWidgetButton btnThird;
     OpeningSensorWidgetButton btnFourth;
 
+    private List<Button> buttons;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,26 +39,18 @@ public class LivingRoomActivity extends AppCompatActivity implements View.OnClic
 
         initButtons();
 
-//        RequestSender requestSender = new RequestSender(btnFirst);
-//        requestSender.execute("http://mcss.blue:8080/widget/p_oli_21");
-
-//        RequestSender requestSender = new RequestSender();
     }
 
     private void initButtons() {
 
-        btnFirst = (WallLampWidgetButton) findViewById(R.id.btnFirst);
-        btnFirst.setOnClickListener(this);
-//
-//        btnSecond = (CeilingLampWidgetButton) findViewById(R.id.btnSecond);
-//        btnSecond.setOnClickListener(this);
+        this.buttons = new ArrayList<>();
 
-//        btnThird = (FanWidgetButton) findViewById(R.id.btnThird);
-//        btnThird.setOnClickListener(this);
-//
-//        btnFourth = (OpeningSensorWidgetButton) findViewById(R.id.btnFourth);
-//        btnFourth.setOnClickListener(this);
+        this.buttons.add((WallLampWidgetButton) findViewById(R.id.btnFirst));
+        this.buttons.add((WallLampWidgetButton) findViewById(R.id.btnSecond));
 
+        for(Button button : buttons){
+            button.setOnClickListener(this);
+        }
     }
 
     public void changeToBedroom(View view){
