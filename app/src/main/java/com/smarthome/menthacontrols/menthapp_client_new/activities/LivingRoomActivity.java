@@ -11,7 +11,7 @@ import com.smarthome.menthacontrols.menthapp_client_new.model.CeilingLampWidgetB
 import com.smarthome.menthacontrols.menthapp_client_new.model.FanWidgetButton;
 import com.smarthome.menthacontrols.menthapp_client_new.model.OpeningSensorWidgetButton;
 import com.smarthome.menthacontrols.menthapp_client_new.model.WallLampWidgetButton;
-import com.smarthome.menthacontrols.menthapp_client_new.request.RequestHandler;
+import com.smarthome.menthacontrols.menthapp_client_new.request.RequestSender;
 
 
 public class LivingRoomActivity extends AppCompatActivity implements View.OnClickListener{
@@ -31,23 +31,25 @@ public class LivingRoomActivity extends AppCompatActivity implements View.OnClic
 
         initButtons();
 
-        RequestHandler requestHandler = new RequestHandler(btnFirst);
-        requestHandler.execute("http://mcss.blue:8080/bedroom/p_oli_33");
+//        RequestSender requestSender = new RequestSender(btnFirst);
+//        requestSender.execute("http://mcss.blue:8080/widget/p_oli_21");
+
+        RequestSender requestSender = new RequestSender();
     }
 
     private void initButtons() {
 
         btnFirst = (WallLampWidgetButton) findViewById(R.id.btnFirst);
         btnFirst.setOnClickListener(this);
+//
+//        btnSecond = (CeilingLampWidgetButton) findViewById(R.id.btnSecond);
+//        btnSecond.setOnClickListener(this);
 
-        btnSecond = (CeilingLampWidgetButton) findViewById(R.id.btnSecond);
-        btnSecond.setOnClickListener(this);
-
-        btnThird = (FanWidgetButton) findViewById(R.id.btnThird);
-        btnThird.setOnClickListener(this);
-
-        btnFourth = (OpeningSensorWidgetButton) findViewById(R.id.btnFourth);
-        btnFourth.setOnClickListener(this);
+//        btnThird = (FanWidgetButton) findViewById(R.id.btnThird);
+//        btnThird.setOnClickListener(this);
+//
+//        btnFourth = (OpeningSensorWidgetButton) findViewById(R.id.btnFourth);
+//        btnFourth.setOnClickListener(this);
 
     }
 

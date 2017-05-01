@@ -5,6 +5,7 @@ import android.os.Build;
 import android.support.annotation.RequiresApi;
 import android.util.Log;
 
+import com.smarthome.menthacontrols.menthapp_client_new.model.TransferObject;
 import com.smarthome.menthacontrols.menthapp_client_new.model.enums.DownloadStatus;
 
 import java.io.BufferedReader;
@@ -15,9 +16,9 @@ import java.net.MalformedURLException;
 import java.net.URL;
 
 
-public class RequestHandler extends AsyncTask<String, Void, String>{
+public class RequestSender extends AsyncTask<String, Void, String>{
 
-    private static final String TAG = "RequestHandler";
+    private static final String TAG = "RequestSender";
     private DownloadStatus downloadStatus;
     private final ButtonStatusInitializer callback;
 
@@ -26,7 +27,7 @@ public class RequestHandler extends AsyncTask<String, Void, String>{
         void initializeStatus(Boolean status);
     }
 
-    public RequestHandler(ButtonStatusInitializer callback) {
+    public RequestSender(ButtonStatusInitializer callback) {
         this.downloadStatus = DownloadStatus.IDLE;
         this.callback = callback;
     }
@@ -37,17 +38,21 @@ public class RequestHandler extends AsyncTask<String, Void, String>{
 
         Log.d(TAG, "onPostExecute: parameter = " + s);
 
-        if(callback != null){
-            Float result = Float.valueOf(s);
-            Log.d(TAG, "onPostExecute: " + s + " " + Float.valueOf(s));
+        TransferObject transferObject = JsonParser.createTransferObjectFromJson(s);
+        callback.initializeStatus(transferObject.getWidgetStatus());
 
-            if(result == 80){
-                callback.initializeStatus(true);
-            }else{
-                callback.initializeStatus(false);
-            }
 
-        }
+//        if(callback != null){
+//            Float result = Float.valueOf(s);
+//            Log.d(TAG, "onPostExecute: " + s + " " + Float.valueOf(s));
+//
+//            if(result == 80){
+//                callback.initializeStatus(true);
+//            }else{
+//                callback.initializeStatus(false);
+//            }
+//
+//        }
         Log.d(TAG, "onPostExecute: ends");
 
     }
@@ -55,7 +60,7 @@ public class RequestHandler extends AsyncTask<String, Void, String>{
     @Override
     protected String doInBackground(String... params) {
 
-        Log.d(TAG, "doInBackground: " + params[1]);
+//        Log.d(TAG, "doInBackground: " + params[1]);
 
         HttpURLConnection connection = null;
         BufferedReader reader = null;

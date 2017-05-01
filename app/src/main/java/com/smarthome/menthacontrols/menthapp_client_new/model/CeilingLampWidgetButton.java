@@ -7,9 +7,9 @@ import android.util.AttributeSet;
 
 import com.smarthome.menthacontrols.menthapp_client_new.R;
 import com.smarthome.menthacontrols.menthapp_client_new.model.enums.ButtonStatus;
-import com.smarthome.menthacontrols.menthapp_client_new.request.RequestHandler;
+import com.smarthome.menthacontrols.menthapp_client_new.request.RequestSender;
 
-public class CeilingLampWidgetButton extends AppCompatButton implements RequestHandler.ButtonStatusInitializer {
+public class CeilingLampWidgetButton extends AppCompatButton implements RequestSender.ButtonStatusInitializer {
 
     private ButtonStatus buttonStatus = ButtonStatus.OFF;
     private static final int onIcon = R.drawable.mlamp_yel;
