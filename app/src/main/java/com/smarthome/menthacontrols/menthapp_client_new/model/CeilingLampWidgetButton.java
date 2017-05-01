@@ -55,7 +55,7 @@ public class CeilingLampWidgetButton extends AppCompatButton implements RequestS
     }
 
     @Override
-    public void initializeStatus(Boolean status) {
+    public void updateStatus(Boolean status) {
         if(status){
             this.buttonStatus = ButtonStatus.ON;
             setBackgroundResource(onIcon);

@@ -20,15 +20,18 @@ public class RequestSender extends AsyncTask<String, Void, String>{
 
     private static final String TAG = "RequestSender";
     private DownloadStatus downloadStatus;
-    private final ButtonStatusInitializer callback;
+    private ButtonStatusInitializer callback;
 
 
     public interface ButtonStatusInitializer{
-        void initializeStatus(Boolean status);
+        void updateStatus(Boolean status);
     }
 
-    public RequestSender(ButtonStatusInitializer callback) {
+    public RequestSender() {
         this.downloadStatus = DownloadStatus.IDLE;
+    }
+
+    public void setCallback(ButtonStatusInitializer callback){
         this.callback = callback;
     }
 
@@ -39,7 +42,7 @@ public class RequestSender extends AsyncTask<String, Void, String>{
         Log.d(TAG, "onPostExecute: parameter = " + s);
 
         TransferObject transferObject = JsonParser.createTransferObjectFromJson(s);
-        callback.initializeStatus(transferObject.getWidgetStatus());
+        callback.updateStatus(transferObject.getWidgetStatus());
 
 
 //        if(callback != null){

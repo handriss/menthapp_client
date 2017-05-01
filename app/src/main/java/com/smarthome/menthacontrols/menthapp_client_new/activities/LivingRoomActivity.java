@@ -11,7 +11,6 @@ import com.smarthome.menthacontrols.menthapp_client_new.model.CeilingLampWidgetB
 import com.smarthome.menthacontrols.menthapp_client_new.model.FanWidgetButton;
 import com.smarthome.menthacontrols.menthapp_client_new.model.OpeningSensorWidgetButton;
 import com.smarthome.menthacontrols.menthapp_client_new.model.WallLampWidgetButton;
-import com.smarthome.menthacontrols.menthapp_client_new.request.RequestSender;
 
 
 public class LivingRoomActivity extends AppCompatActivity implements View.OnClickListener{
@@ -34,7 +33,7 @@ public class LivingRoomActivity extends AppCompatActivity implements View.OnClic
 //        RequestSender requestSender = new RequestSender(btnFirst);
 //        requestSender.execute("http://mcss.blue:8080/widget/p_oli_21");
 
-        RequestSender requestSender = new RequestSender();
+//        RequestSender requestSender = new RequestSender();
     }
 
     private void initButtons() {
