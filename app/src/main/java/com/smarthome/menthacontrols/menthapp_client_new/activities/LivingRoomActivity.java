@@ -11,11 +11,10 @@ import com.smarthome.menthacontrols.menthapp_client_new.model.CeilingLampWidgetB
 import com.smarthome.menthacontrols.menthapp_client_new.model.FanWidgetButton;
 import com.smarthome.menthacontrols.menthapp_client_new.model.OpeningSensorWidgetButton;
 import com.smarthome.menthacontrols.menthapp_client_new.model.WallLampWidgetButton;
-import com.smarthome.menthacontrols.menthapp_client_new.model.enums.DownloadStatus;
 import com.smarthome.menthacontrols.menthapp_client_new.request.RequestHandler;
 
 
-public class LivingRoomActivity extends AppCompatActivity implements View.OnClickListener, RequestHandler.OnDownloadComplete {
+public class LivingRoomActivity extends AppCompatActivity implements View.OnClickListener{
 
     private static final String TAG = "LivingRoomActivity";
 
@@ -33,7 +32,7 @@ public class LivingRoomActivity extends AppCompatActivity implements View.OnClic
         initButtons();
 
         RequestHandler requestHandler = new RequestHandler(btnFirst);
-        requestHandler.execute("http://mcss.blue:8080/bedroom/p_oli_33", "cica");
+        requestHandler.execute("http://mcss.blue:8080/bedroom/p_oli_33");
     }
 
     private void initButtons() {
@@ -103,17 +102,6 @@ public class LivingRoomActivity extends AppCompatActivity implements View.OnClic
         }else{
             Log.d(TAG, "Unknown widget");
         }
-
-    }
-
-    @Override
-    public void onDownloadComplete(String data, DownloadStatus status) {
-        if(status == DownloadStatus.OK){
-            Log.d(TAG, "onDownloadCompelte: data is: " + data);
-        }else{
-            Log.e(TAG, "onDownloadCompelte failed with status: " + status );
-        }
-
 
     }
 }

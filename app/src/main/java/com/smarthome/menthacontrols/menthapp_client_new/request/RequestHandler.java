@@ -5,7 +5,6 @@ import android.os.Build;
 import android.support.annotation.RequiresApi;
 import android.util.Log;
 
-import com.smarthome.menthacontrols.menthapp_client_new.model.WallLampWidgetButton;
 import com.smarthome.menthacontrols.menthapp_client_new.model.enums.DownloadStatus;
 
 import java.io.BufferedReader;
@@ -20,17 +19,14 @@ public class RequestHandler extends AsyncTask<String, Void, String>{
 
     private static final String TAG = "RequestHandler";
     private DownloadStatus downloadStatus;
-    private final WallLampWidgetButton callback;
+    private final ButtonStatusInitializer callback;
 
-    public interface OnDownloadComplete {
-        void onDownloadComplete(String data, DownloadStatus status);
-    }
 
     public interface ButtonStatusInitializer{
         void initializeStatus(Boolean status);
     }
 
-    public RequestHandler(WallLampWidgetButton callback) {
+    public RequestHandler(ButtonStatusInitializer callback) {
         this.downloadStatus = DownloadStatus.IDLE;
         this.callback = callback;
     }
@@ -44,7 +40,7 @@ public class RequestHandler extends AsyncTask<String, Void, String>{
         if(callback != null){
             Float result = Float.valueOf(s);
             Log.d(TAG, "onPostExecute: " + s + " " + Float.valueOf(s));
-            
+
             if(result == 80){
                 callback.initializeStatus(true);
             }else{
