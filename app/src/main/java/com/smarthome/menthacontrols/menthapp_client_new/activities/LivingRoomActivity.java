@@ -7,11 +7,10 @@ import android.util.Log;
 import android.view.View;
 
 import com.smarthome.menthacontrols.menthapp_client_new.R;
-import com.smarthome.menthacontrols.menthapp_client_new.model.CeilingLampWidgetButton;
-import com.smarthome.menthacontrols.menthapp_client_new.model.FanWidgetButton;
-import com.smarthome.menthacontrols.menthapp_client_new.model.OpeningSensorWidgetButton;
-import com.smarthome.menthacontrols.menthapp_client_new.model.WallLampWidgetButton;
-import com.smarthome.menthacontrols.menthapp_client_new.request.RequestHandler;
+import com.smarthome.menthacontrols.menthapp_client_new.model.buttons.CeilingLampWidgetButton;
+import com.smarthome.menthacontrols.menthapp_client_new.model.buttons.FanWidgetButton;
+import com.smarthome.menthacontrols.menthapp_client_new.model.buttons.OpeningSensorWidgetButton;
+import com.smarthome.menthacontrols.menthapp_client_new.model.buttons.WallLampWidgetButton;
 
 
 public class LivingRoomActivity extends AppCompatActivity implements View.OnClickListener{
