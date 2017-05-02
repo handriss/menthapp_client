@@ -3,11 +3,13 @@ package com.smarthome.menthacontrols.menthapp_client_new.activities;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.AppCompatButton;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
 import com.smarthome.menthacontrols.menthapp_client_new.R;
+import com.smarthome.menthacontrols.menthapp_client_new.model.TransferObject;
 import com.smarthome.menthacontrols.menthapp_client_new.model.buttons.CeilingLampWidgetButton;
 import com.smarthome.menthacontrols.menthapp_client_new.model.buttons.FanWidgetButton;
 import com.smarthome.menthacontrols.menthapp_client_new.model.buttons.OpeningSensorWidgetButton;
@@ -18,14 +20,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class LivingRoomActivity extends AppCompatActivity implements View.OnClickListener, RequestSender.OnHttpRequestCompleteUpdatable {
+public class LivingRoomActivity extends AppCompatActivity implements View.OnClickListener, RequestSender.Updateable {
 
 //    ide kéne egy list az összes buttonról és az activitynek kéne implementálnia a OnDownloadCompleteHandler-t
 //    és ha kész, akkor a list alapján updatelnie a buttonokat
 
     private static final String TAG = "LivingRoomActivity";
 
-    private List<Button> buttons;
+    private List<AppCompatButton> buttons;
 
 
     @Override
@@ -34,6 +36,10 @@ public class LivingRoomActivity extends AppCompatActivity implements View.OnClic
         setContentView(R.layout.activity_main);
 
         initButtons();
+
+        RequestSender requestSender = new RequestSender();
+
+        requestSender.initializeButtonsInBulk(this.buttons);
 
     }
 
@@ -104,7 +110,7 @@ public class LivingRoomActivity extends AppCompatActivity implements View.OnClic
     }
 
     @Override
-    public void updateButtonStatus(String result) {
-
+    public void updateViewOnDownloadComplete(List<TransferObject> transferObjects) {
+        Log.d(TAG, "updateViewOnDownloadComplete: " + transferObjects.toString());
     }
 }
