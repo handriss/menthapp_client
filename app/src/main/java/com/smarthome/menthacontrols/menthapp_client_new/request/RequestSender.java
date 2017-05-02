@@ -15,19 +15,22 @@ import java.net.MalformedURLException;
 import java.net.URL;
 
 
-public class RequestHandler extends AsyncTask<String, Void, String>{
+public class RequestSender extends AsyncTask<String, Void, String>{
 
-    private static final String TAG = "RequestHandler";
+    private static final String TAG = "RequestSender";
     private DownloadStatus downloadStatus;
-    private final ButtonStatusInitializer callback;
+    private OnDownloadCompleteHandler callback;
 
 
-    public interface ButtonStatusInitializer{
-        void initializeStatus(Boolean status);
+    public interface OnDownloadCompleteHandler{
+        void onDownloadComplete(String data, DownloadStatus status);
     }
 
-    public RequestHandler(ButtonStatusInitializer callback) {
+    public RequestSender() {
         this.downloadStatus = DownloadStatus.IDLE;
+    }
+
+    public void setCallback(OnDownloadCompleteHandler callback){
         this.callback = callback;
     }
 
@@ -37,17 +40,21 @@ public class RequestHandler extends AsyncTask<String, Void, String>{
 
         Log.d(TAG, "onPostExecute: parameter = " + s);
 
-        if(callback != null){
-            Float result = Float.valueOf(s);
-            Log.d(TAG, "onPostExecute: " + s + " " + Float.valueOf(s));
+//        TransferObject transferObject = JsonParser.createTransferObjectFromJson(s);
+//        callback.onDownloadComplete(transferObject.getWidgetStatus());
 
-            if(result == 80){
-                callback.initializeStatus(true);
-            }else{
-                callback.initializeStatus(false);
-            }
 
-        }
+//        if(callback != null){
+//            Float result = Float.valueOf(s);
+//            Log.d(TAG, "onPostExecute: " + s + " " + Float.valueOf(s));
+//
+//            if(result == 80){
+//                callback.initializeStatus(true);
+//            }else{
+//                callback.initializeStatus(false);
+//            }
+//
+//        }
         Log.d(TAG, "onPostExecute: ends");
 
     }
@@ -55,7 +62,7 @@ public class RequestHandler extends AsyncTask<String, Void, String>{
     @Override
     protected String doInBackground(String... params) {
 
-        Log.d(TAG, "doInBackground: " + params[1]);
+//        Log.d(TAG, "doInBackground: " + params[1]);
 
         HttpURLConnection connection = null;
         BufferedReader reader = null;

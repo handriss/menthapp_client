@@ -1,46 +1,35 @@
-package com.smarthome.menthacontrols.menthapp_client_new.model;
-
+package com.smarthome.menthacontrols.menthapp_client_new.model.buttons;
 
 import android.content.Context;
 import android.support.v7.widget.AppCompatButton;
 import android.util.AttributeSet;
+import android.util.StringBuilderPrinter;
 
 import com.smarthome.menthacontrols.menthapp_client_new.R;
 import com.smarthome.menthacontrols.menthapp_client_new.model.enums.ButtonStatus;
-import com.smarthome.menthacontrols.menthapp_client_new.request.RequestHandler;
+import com.smarthome.menthacontrols.menthapp_client_new.request.RequestSender;
 
-public class CeilingLampWidgetButton extends AppCompatButton implements RequestHandler.ButtonStatusInitializer {
+
+public class FanWidgetButton extends AppCompatButton implements RequestSender.ButtonCallbackHandler {
 
     private String owner;
     private ButtonStatus buttonStatus = ButtonStatus.OFF;
-    private static final int onIcon = R.drawable.mlamp_yel;
-    private static final int offIcon = R.drawable.mlamp;
+    private static final int onIcon = R.drawable.vent_yel;
+    private static final int offIcon = R.drawable.vent;
 
-
-    public CeilingLampWidgetButton(Context context) {
+    public FanWidgetButton(Context context) {
         super(context);
         this.setBackgroundResource(offIcon);
     }
 
-    public CeilingLampWidgetButton(Context context, AttributeSet attrs) {
+    public FanWidgetButton(Context context, AttributeSet attrs) {
         super(context, attrs);
         this.setBackgroundResource(offIcon);
     }
 
-    public CeilingLampWidgetButton(Context context, AttributeSet attrs, int defStyleAttr) {
+    public FanWidgetButton(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         this.setBackgroundResource(offIcon);
-    }
-
-    public void setButtonStatus(ButtonStatus buttonStatus) {
-
-        this.buttonStatus = buttonStatus;
-
-        if(this.buttonStatus == ButtonStatus.ON){
-            setBackgroundResource(onIcon);
-        }else if(this.buttonStatus == ButtonStatus.OFF){
-            setBackgroundResource(offIcon);
-        }
     }
 
     public void toggleButton(){
@@ -56,7 +45,7 @@ public class CeilingLampWidgetButton extends AppCompatButton implements RequestH
     }
 
     @Override
-    public void initializeStatus(Boolean status) {
+    public void updateStatus(Boolean status) {
         if(status){
             this.buttonStatus = ButtonStatus.ON;
             setBackgroundResource(onIcon);

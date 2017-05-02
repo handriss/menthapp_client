@@ -9,9 +9,6 @@ import com.smarthome.menthacontrols.menthapp_client_new.R;
 import com.smarthome.menthacontrols.menthapp_client_new.model.enums.ButtonStatus;
 import com.smarthome.menthacontrols.menthapp_client_new.request.RequestHandler;
 
-import lombok.Setter;
-
-
 public class WallLampWidgetButton extends AppCompatButton implements RequestHandler.ButtonStatusInitializer {
 
     private String owner;

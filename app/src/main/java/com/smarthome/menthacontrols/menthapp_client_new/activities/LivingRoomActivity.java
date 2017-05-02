@@ -16,6 +16,9 @@ import com.smarthome.menthacontrols.menthapp_client_new.request.RequestHandler;
 
 public class LivingRoomActivity extends AppCompatActivity implements View.OnClickListener{
 
+//    ide kéne egy list az összes buttonról és az activitynek kéne implementálnia a OnDownloadCompleteHandler-t
+//    és ha kész, akkor a list alapján updatelnie a buttonokat
+
     private static final String TAG = "LivingRoomActivity";
 
     WallLampWidgetButton p_oli_k3_1;
@@ -62,8 +65,10 @@ public class LivingRoomActivity extends AppCompatActivity implements View.OnClic
 
         initButtons();
 
-//        RequestHandler requestHandler = new RequestHandler(p_oli_1_1);
-//        requestHandler.execute("http://mcss.blue:8080/bedroom/p_oli_33");
+//        RequestSender requestSender = new RequestSender(btnFirst);
+//        requestSender.execute("http://mcss.blue:8080/widget/p_oli_21");
+
+//        RequestSender requestSender = new RequestSender();
     }
 
     private void initButtons() {
