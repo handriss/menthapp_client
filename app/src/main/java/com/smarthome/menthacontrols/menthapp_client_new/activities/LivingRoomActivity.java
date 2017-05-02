@@ -12,22 +12,18 @@ import com.smarthome.menthacontrols.menthapp_client_new.model.buttons.CeilingLam
 import com.smarthome.menthacontrols.menthapp_client_new.model.buttons.FanWidgetButton;
 import com.smarthome.menthacontrols.menthapp_client_new.model.buttons.OpeningSensorWidgetButton;
 import com.smarthome.menthacontrols.menthapp_client_new.model.buttons.WallLampWidgetButton;
+import com.smarthome.menthacontrols.menthapp_client_new.request.RequestSender;
 
 import java.util.ArrayList;
 import java.util.List;
 
 
-public class LivingRoomActivity extends AppCompatActivity implements View.OnClickListener{
+public class LivingRoomActivity extends AppCompatActivity implements View.OnClickListener, RequestSender.OnHttpRequestCompleteUpdatable {
 
 //    ide kéne egy list az összes buttonról és az activitynek kéne implementálnia a OnDownloadCompleteHandler-t
 //    és ha kész, akkor a list alapján updatelnie a buttonokat
 
     private static final String TAG = "LivingRoomActivity";
-
-    WallLampWidgetButton btnFirst;
-    CeilingLampWidgetButton btnSecond;
-    FanWidgetButton btnThird;
-    OpeningSensorWidgetButton btnFourth;
 
     private List<Button> buttons;
 
@@ -84,7 +80,7 @@ public class LivingRoomActivity extends AppCompatActivity implements View.OnClic
 
     @Override
     public void onClick(View view) {
-
+//        kéne csinálni egy basebutton osztályt (vagy interfacet)
 
         if(view instanceof WallLampWidgetButton){
             WallLampWidgetButton button = (WallLampWidgetButton) view;
@@ -104,6 +100,11 @@ public class LivingRoomActivity extends AppCompatActivity implements View.OnClic
         }else{
             Log.d(TAG, "Unknown widget");
         }
+
+    }
+
+    @Override
+    public void updateButtonStatus(String result) {
 
     }
 }

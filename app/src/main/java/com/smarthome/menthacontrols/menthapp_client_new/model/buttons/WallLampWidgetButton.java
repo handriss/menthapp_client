@@ -7,7 +7,6 @@ import android.util.AttributeSet;
 
 import com.smarthome.menthacontrols.menthapp_client_new.R;
 import com.smarthome.menthacontrols.menthapp_client_new.model.enums.ButtonStatus;
-import com.smarthome.menthacontrols.menthapp_client_new.request.ButtonDataGetter;
 
 public class WallLampWidgetButton extends AppCompatButton implements ButtonDataGetter.ButtonCallbackHandler {
 
