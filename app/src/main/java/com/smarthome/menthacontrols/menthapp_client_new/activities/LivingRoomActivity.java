@@ -14,13 +14,13 @@ import com.smarthome.menthacontrols.menthapp_client_new.model.buttons.CeilingLam
 import com.smarthome.menthacontrols.menthapp_client_new.model.buttons.FanWidgetButton;
 import com.smarthome.menthacontrols.menthapp_client_new.model.buttons.OpeningSensorWidgetButton;
 import com.smarthome.menthacontrols.menthapp_client_new.model.buttons.WallLampWidgetButton;
-import com.smarthome.menthacontrols.menthapp_client_new.request.RequestSender;
+import com.smarthome.menthacontrols.menthapp_client_new.request.RequestSender_old;
 
 import java.util.ArrayList;
 import java.util.List;
 
 
-public class LivingRoomActivity extends AppCompatActivity implements View.OnClickListener, RequestSender.Updateable {
+public class LivingRoomActivity extends AppCompatActivity implements View.OnClickListener, RequestSender_old.Updateable {
 
 //    ide kéne egy list az összes buttonról és az activitynek kéne implementálnia a OnDownloadCompleteHandler-t
 //    és ha kész, akkor a list alapján updatelnie a buttonokat
@@ -37,7 +37,7 @@ public class LivingRoomActivity extends AppCompatActivity implements View.OnClic
 
         initButtons();
 
-        RequestSender requestSender = new RequestSender();
+        RequestSender_old requestSender = new RequestSender_old();
 
         requestSender.initializeButtonsInBulk(this.buttons);
 

@@ -6,7 +6,7 @@ import com.smarthome.menthacontrols.menthapp_client_new.model.TransferObject;
 
 import java.util.List;
 
-public class RequestSender{
+public class RequestSender_old {
 
     private List<AppCompatButton> buttons;
     private AppCompatButton button;
@@ -16,7 +16,6 @@ public class RequestSender{
 
         void updateViewOnDownloadComplete(List<TransferObject> transferObjects);
     }
-
 
 
 
