@@ -8,7 +8,7 @@ import android.util.AttributeSet;
 import com.smarthome.menthacontrols.menthapp_client_new.R;
 import com.smarthome.menthacontrols.menthapp_client_new.model.enums.ButtonStatus;
 
-public class WallLampWidgetButton extends AppCompatButton implements ButtonDataGetter.ButtonCallbackHandler {
+public class WallLampWidgetButton extends AppCompatButton {
 
     private ButtonStatus buttonStatus = ButtonStatus.OFF;
     private static final int onIcon = R.drawable.flamp_yel;
@@ -41,7 +41,6 @@ public class WallLampWidgetButton extends AppCompatButton implements ButtonDataG
 
     }
 
-    @Override
     public void updateStatus(Boolean status) {
         if(status){
             this.buttonStatus = ButtonStatus.ON;

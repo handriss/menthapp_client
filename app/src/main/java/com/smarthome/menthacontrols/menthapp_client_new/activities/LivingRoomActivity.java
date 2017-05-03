@@ -14,7 +14,9 @@ import com.smarthome.menthacontrols.menthapp_client_new.model.buttons.CeilingLam
 import com.smarthome.menthacontrols.menthapp_client_new.model.buttons.FanWidgetButton;
 import com.smarthome.menthacontrols.menthapp_client_new.model.buttons.OpeningSensorWidgetButton;
 import com.smarthome.menthacontrols.menthapp_client_new.model.buttons.WallLampWidgetButton;
+import com.smarthome.menthacontrols.menthapp_client_new.request.RequestSender;
 import com.smarthome.menthacontrols.menthapp_client_new.request.RequestSender_old;
+import com.smarthome.menthacontrols.menthapp_client_new.request.request_helpers.MyRunnable;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -36,10 +38,23 @@ public class LivingRoomActivity extends AppCompatActivity implements View.OnClic
         setContentView(R.layout.activity_main);
 
         initButtons();
+        loadButtonsInBulk();
 
         RequestSender_old requestSender = new RequestSender_old();
 
         requestSender.initializeButtonsInBulk(this.buttons);
+
+    }
+
+    private void loadButtonsInBulk() {
+
+        RequestSender.initializeButtonsInBulk(getApplicationContext(), new MyRunnable<TransferObject[]>() {
+            @Override
+            public void run(TransferObject[] dmUserses) {
+                Log.d(TAG, "run: " + dmUserses.toString());
+                Log.d(TAG, "run: " + "cicafül");
+            }
+        });
 
     }
 
