@@ -1,4 +1,4 @@
-package com.smarthome.menthacontrols.menthapp_client_new.model.buttons;
+package com.smarthome.menthacontrols.menthapp_client_new.model.button_subtypes;
 
 
 import android.content.Context;

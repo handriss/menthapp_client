@@ -1,5 +1,4 @@
-package com.smarthome.menthacontrols.menthapp_client_new.model.buttons;
-
+package com.smarthome.menthacontrols.menthapp_client_new.model.button_subtypes;
 
 import android.content.Context;
 import android.support.v7.widget.AppCompatButton;
@@ -8,24 +7,25 @@ import android.util.AttributeSet;
 import com.smarthome.menthacontrols.menthapp_client_new.R;
 import com.smarthome.menthacontrols.menthapp_client_new.model.enums.ButtonStatus;
 
-public class WallLampWidgetButton extends AppCompatButton {
+
+public class FanWidgetButton extends AppCompatButton{
 
     private String owner;
     private ButtonStatus buttonStatus = ButtonStatus.OFF;
-    private static final int onIcon = R.drawable.flamp_yel;
-    private static final int offIcon = R.drawable.flamp;
+    private static final int onIcon = R.drawable.vent_yel;
+    private static final int offIcon = R.drawable.vent;
 
-    public WallLampWidgetButton(Context context) {
+    public FanWidgetButton(Context context) {
         super(context);
         this.setBackgroundResource(offIcon);
     }
 
-    public WallLampWidgetButton(Context context, AttributeSet attrs) {
+    public FanWidgetButton(Context context, AttributeSet attrs) {
         super(context, attrs);
         this.setBackgroundResource(offIcon);
     }
 
-    public WallLampWidgetButton(Context context, AttributeSet attrs, int defStyleAttr) {
+    public FanWidgetButton(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         this.setBackgroundResource(offIcon);
     }
@@ -42,17 +42,6 @@ public class WallLampWidgetButton extends AppCompatButton {
 
     }
 
-
-    public void updateStatus(Boolean status) {
-        if (status) {
-            this.buttonStatus = ButtonStatus.ON;
-            setBackgroundResource(onIcon);
-        } else {
-            this.buttonStatus = ButtonStatus.OFF;
-            setBackgroundResource(offIcon);
-        }
-
-    }
     public void setOwner(String owner) {
         this.owner = owner;
     }

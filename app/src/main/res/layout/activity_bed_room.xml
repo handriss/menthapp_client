@@ -89,7 +89,7 @@
         app:layout_constraintTop_toBottomOf="@+id/buttonUpstairs" />
 
 
-    <com.smarthome.menthacontrols.menthapp_client_new.model.buttons.WallLampWidgetButton
+    <com.smarthome.menthacontrols.menthapp_client_new.model.button_subtypes.WallLampWidgetButton
         android:id="@+id/p_oli_24_1"
         android:layout_width="35dp"
         android:layout_height="35dp"
@@ -98,7 +98,7 @@
         app:layout_constraintTop_toTopOf="@+id/livingroom_background"
         android:layout_marginTop="94dp" />
 
-    <com.smarthome.menthacontrols.menthapp_client_new.model.buttons.WallLampWidgetButton
+    <com.smarthome.menthacontrols.menthapp_client_new.model.button_subtypes.WallLampWidgetButton
         android:id="@+id/p_oli_24_2"
         android:layout_width="35dp"
         android:layout_height="35dp"
@@ -107,7 +107,7 @@
         android:layout_marginLeft="0dp"
         app:layout_constraintLeft_toLeftOf="@+id/p_oli_24_1" />
 
-    <com.smarthome.menthacontrols.menthapp_client_new.model.buttons.WallLampWidgetButton
+    <com.smarthome.menthacontrols.menthapp_client_new.model.button_subtypes.WallLampWidgetButton
         android:id="@+id/p_oli_25"
         android:layout_width="35dp"
         android:layout_height="35dp"
@@ -116,7 +116,7 @@
         android:layout_marginRight="0dp"
         app:layout_constraintRight_toRightOf="@+id/p_oli_24_1" />
 
-    <com.smarthome.menthacontrols.menthapp_client_new.model.buttons.WallLampWidgetButton
+    <com.smarthome.menthacontrols.menthapp_client_new.model.button_subtypes.WallLampWidgetButton
         android:id="@+id/p_oli_k2b"
         android:layout_width="35dp"
         android:layout_height="35dp"
@@ -125,7 +125,7 @@
         app:layout_constraintRight_toLeftOf="@+id/p_oli_24_1"
         android:layout_marginRight="21dp" />
 
-    <com.smarthome.menthacontrols.menthapp_client_new.model.buttons.WallLampWidgetButton
+    <com.smarthome.menthacontrols.menthapp_client_new.model.button_subtypes.WallLampWidgetButton
         android:id="@+id/p_oli_26a"
         android:layout_width="35dp"
         android:layout_height="35dp"
@@ -134,7 +134,7 @@
         android:layout_marginTop="183dp"
         app:layout_constraintTop_toBottomOf="@+id/p_oli_24_1" />
 
-    <com.smarthome.menthacontrols.menthapp_client_new.model.buttons.WallLampWidgetButton
+    <com.smarthome.menthacontrols.menthapp_client_new.model.button_subtypes.WallLampWidgetButton
         android:id="@+id/p_oli_26b"
         android:layout_width="35dp"
         android:layout_height="35dp"
@@ -144,7 +144,7 @@
         app:layout_constraintLeft_toLeftOf="@+id/p_oli_24_1" />
 
 
-    <com.smarthome.menthacontrols.menthapp_client_new.model.buttons.WallLampWidgetButton
+    <com.smarthome.menthacontrols.menthapp_client_new.model.button_subtypes.WallLampWidgetButton
         android:id="@+id/p_oli_31"
         android:layout_width="35dp"
         android:layout_height="35dp"
@@ -153,7 +153,7 @@
         app:layout_constraintTop_toTopOf="@+id/p_oli_24_1"
         android:layout_marginTop="7dp" />
 
-    <com.smarthome.menthacontrols.menthapp_client_new.model.buttons.WallLampWidgetButton
+    <com.smarthome.menthacontrols.menthapp_client_new.model.button_subtypes.WallLampWidgetButton
         android:id="@+id/p_oli_27"
         android:layout_width="35dp"
         android:layout_height="35dp"
@@ -162,7 +162,7 @@
         app:layout_constraintTop_toTopOf="@+id/p_oli_24_1"
         android:layout_marginTop="176dp" />
 
-    <com.smarthome.menthacontrols.menthapp_client_new.model.buttons.WallLampWidgetButton
+    <com.smarthome.menthacontrols.menthapp_client_new.model.button_subtypes.WallLampWidgetButton
         android:id="@+id/p_oli_k9"
         android:layout_width="35dp"
         android:layout_height="35dp"
@@ -171,7 +171,7 @@
         app:layout_constraintTop_toTopOf="@+id/p_oli_24_1"
         android:layout_marginTop="253dp" />
 
-    <com.smarthome.menthacontrols.menthapp_client_new.model.buttons.WallLampWidgetButton
+    <com.smarthome.menthacontrols.menthapp_client_new.model.button_subtypes.WallLampWidgetButton
         android:id="@+id/p_oli_36"
         android:layout_width="35dp"
         android:layout_height="35dp"
@@ -180,7 +180,7 @@
         app:layout_constraintTop_toTopOf="@+id/p_oli_24_1"
         android:layout_marginTop="193dp" />
 
-    <com.smarthome.menthacontrols.menthapp_client_new.model.buttons.CeilingLampWidgetButton
+    <com.smarthome.menthacontrols.menthapp_client_new.model.button_subtypes.CeilingLampWidgetButton
         android:id="@+id/p_oli_33"
         android:layout_width="35dp"
         android:layout_height="35dp"
@@ -189,7 +189,7 @@
         app:layout_constraintTop_toTopOf="@+id/p_oli_24_1"
         android:layout_marginTop="56dp" />
 
-    <com.smarthome.menthacontrols.menthapp_client_new.model.buttons.CeilingLampWidgetButton
+    <com.smarthome.menthacontrols.menthapp_client_new.model.button_subtypes.CeilingLampWidgetButton
         android:id="@+id/p_oli_30"
         android:layout_width="35dp"
         android:layout_height="35dp"
@@ -198,7 +198,7 @@
         app:layout_constraintTop_toTopOf="@+id/p_oli_24_1"
         android:layout_marginTop="110dp" />
 
-    <com.smarthome.menthacontrols.menthapp_client_new.model.buttons.CeilingLampWidgetButton
+    <com.smarthome.menthacontrols.menthapp_client_new.model.button_subtypes.CeilingLampWidgetButton
         android:id="@+id/p_oli_29"
         android:layout_width="35dp"
         android:layout_height="35dp"
@@ -208,7 +208,7 @@
         android:layout_marginTop="101dp" />
 
 
-    <com.smarthome.menthacontrols.menthapp_client_new.model.buttons.CeilingLampWidgetButton
+    <com.smarthome.menthacontrols.menthapp_client_new.model.button_subtypes.CeilingLampWidgetButton
         android:id="@+id/p_oli_k8_1"
         android:layout_width="35dp"
         android:layout_height="35dp"
@@ -218,7 +218,7 @@
         android:layout_marginTop="56dp" />
 
 
-    <com.smarthome.menthacontrols.menthapp_client_new.model.buttons.CeilingLampWidgetButton
+    <com.smarthome.menthacontrols.menthapp_client_new.model.button_subtypes.CeilingLampWidgetButton
         android:id="@+id/p_oli_k8_2"
         android:layout_width="35dp"
         android:layout_height="35dp"
@@ -227,7 +227,7 @@
         app:layout_constraintTop_toTopOf="@+id/p_oli_24_1"
         android:layout_marginTop="240dp" />
 
-    <com.smarthome.menthacontrols.menthapp_client_new.model.buttons.CeilingLampWidgetButton
+    <com.smarthome.menthacontrols.menthapp_client_new.model.button_subtypes.CeilingLampWidgetButton
         android:id="@+id/p_oli_k8_3"
         android:layout_width="35dp"
         android:layout_height="35dp"
@@ -236,7 +236,7 @@
         app:layout_constraintBottom_toBottomOf="@+id/p_oli_24_1"
         android:layout_marginBottom="17dp" />
 
-    <com.smarthome.menthacontrols.menthapp_client_new.model.buttons.CeilingLampWidgetButton
+    <com.smarthome.menthacontrols.menthapp_client_new.model.button_subtypes.CeilingLampWidgetButton
         android:id="@+id/p_oli_k8_4"
         android:layout_width="35dp"
         android:layout_height="35dp"
@@ -245,7 +245,7 @@
         android:layout_marginBottom="49dp"
         app:layout_constraintBottom_toTopOf="@+id/p_oli_24_1" />
 
-    <com.smarthome.menthacontrols.menthapp_client_new.model.buttons.CeilingLampWidgetButton
+    <com.smarthome.menthacontrols.menthapp_client_new.model.button_subtypes.CeilingLampWidgetButton
         android:id="@+id/p_oli_k8_5"
         android:layout_width="35dp"
         android:layout_height="35dp"
@@ -254,7 +254,7 @@
         android:layout_marginBottom="59dp"
         app:layout_constraintBottom_toTopOf="@+id/p_oli_24_1" />
 
-    <com.smarthome.menthacontrols.menthapp_client_new.model.buttons.CeilingLampWidgetButton
+    <com.smarthome.menthacontrols.menthapp_client_new.model.button_subtypes.CeilingLampWidgetButton
         android:id="@+id/p_oli_k8_6"
         android:layout_width="35dp"
         android:layout_height="35dp"
@@ -263,7 +263,7 @@
         app:layout_constraintTop_toTopOf="@+id/p_oli_24_1"
         android:layout_marginTop="0dp" />
 
-    <com.smarthome.menthacontrols.menthapp_client_new.model.buttons.CeilingLampWidgetButton
+    <com.smarthome.menthacontrols.menthapp_client_new.model.button_subtypes.CeilingLampWidgetButton
         android:id="@+id/p_oli_k8_7"
         android:layout_width="35dp"
         android:layout_height="35dp"
@@ -272,7 +272,7 @@
         app:layout_constraintTop_toTopOf="@+id/p_oli_24_1"
         android:layout_marginTop="205dp" />
 
-    <com.smarthome.menthacontrols.menthapp_client_new.model.buttons.CeilingLampWidgetButton
+    <com.smarthome.menthacontrols.menthapp_client_new.model.button_subtypes.CeilingLampWidgetButton
         android:id="@+id/p_oli_39"
         android:layout_width="35dp"
         android:layout_height="35dp"
@@ -281,7 +281,7 @@
         android:layout_marginBottom="0dp"
         app:layout_constraintBottom_toTopOf="@+id/p_oli_24_1" />
 
-    <com.smarthome.menthacontrols.menthapp_client_new.model.buttons.CeilingLampWidgetButton
+    <com.smarthome.menthacontrols.menthapp_client_new.model.button_subtypes.CeilingLampWidgetButton
         android:id="@+id/p_oli_22"
         android:layout_width="35dp"
         android:layout_height="35dp"
@@ -291,7 +291,7 @@
         android:layout_marginTop="42dp" />
 
 
-    <com.smarthome.menthacontrols.menthapp_client_new.model.buttons.CeilingLampWidgetButton
+    <com.smarthome.menthacontrols.menthapp_client_new.model.button_subtypes.CeilingLampWidgetButton
         android:id="@+id/p_oli_23"
         android:layout_width="35dp"
         android:layout_height="35dp"
@@ -301,7 +301,7 @@
         android:layout_marginTop="91dp" />
 
 
-    <com.smarthome.menthacontrols.menthapp_client_new.model.buttons.CeilingLampWidgetButton
+    <com.smarthome.menthacontrols.menthapp_client_new.model.button_subtypes.CeilingLampWidgetButton
         android:id="@+id/p_oli_21"
         android:layout_width="35dp"
         android:layout_height="35dp"
@@ -310,7 +310,7 @@
         app:layout_constraintTop_toTopOf="@+id/p_oli_24_1"
         android:layout_marginTop="141dp" />
 
-    <com.smarthome.menthacontrols.menthapp_client_new.model.buttons.CeilingLampWidgetButton
+    <com.smarthome.menthacontrols.menthapp_client_new.model.button_subtypes.CeilingLampWidgetButton
         android:id="@+id/p_oli_38"
         android:layout_width="35dp"
         android:layout_height="35dp"
@@ -319,7 +319,7 @@
         app:layout_constraintTop_toTopOf="@+id/p_oli_24_1"
         android:layout_marginTop="66dp" />
 
-    <com.smarthome.menthacontrols.menthapp_client_new.model.buttons.CeilingLampWidgetButton
+    <com.smarthome.menthacontrols.menthapp_client_new.model.button_subtypes.CeilingLampWidgetButton
         android:id="@+id/p_oli_37"
         android:layout_width="35dp"
         android:layout_height="35dp"
@@ -329,7 +329,7 @@
         android:layout_marginTop="158dp" />
 
 
-    <com.smarthome.menthacontrols.menthapp_client_new.model.buttons.CeilingLampWidgetButton
+    <com.smarthome.menthacontrols.menthapp_client_new.model.button_subtypes.CeilingLampWidgetButton
         android:id="@+id/p_oli_35"
         android:layout_width="35dp"
         android:layout_height="35dp"
@@ -339,7 +339,7 @@
         android:layout_marginTop="228dp" />
 
 
-    <com.smarthome.menthacontrols.menthapp_client_new.model.buttons.FanWidgetButton
+    <com.smarthome.menthacontrols.menthapp_client_new.model.button_subtypes.FanWidgetButton
         android:id="@+id/p_ve1"
         android:layout_width="35dp"
         android:layout_height="35dp"
@@ -348,7 +348,7 @@
         app:layout_constraintTop_toTopOf="@+id/p_oli_24_1"
         android:layout_marginTop="7dp" />
 
-    <com.smarthome.menthacontrols.menthapp_client_new.model.buttons.FanWidgetButton
+    <com.smarthome.menthacontrols.menthapp_client_new.model.button_subtypes.FanWidgetButton
         android:id="@+id/p_ve2"
         android:layout_width="35dp"
         android:layout_height="35dp"
