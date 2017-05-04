@@ -8,7 +8,7 @@ import android.view.View;
 import android.widget.Button;
 
 import com.smarthome.menthacontrols.menthapp_client_new.R;
-import com.smarthome.menthacontrols.menthapp_client_new.model.TransferObject;
+import com.smarthome.menthacontrols.menthapp_client_new.request.request_helpers.TransferObject;
 import com.smarthome.menthacontrols.menthapp_client_new.model.buttons.CeilingLampWidgetButton;
 import com.smarthome.menthacontrols.menthapp_client_new.model.buttons.FanWidgetButton;
 import com.smarthome.menthacontrols.menthapp_client_new.model.buttons.OpeningSensorWidgetButton;

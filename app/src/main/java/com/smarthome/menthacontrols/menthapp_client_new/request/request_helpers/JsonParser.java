@@ -3,7 +3,6 @@ package com.smarthome.menthacontrols.menthapp_client_new.request.request_helpers
 
 import android.util.Log;
 
-import com.smarthome.menthacontrols.menthapp_client_new.model.TransferObject;
 import com.smarthome.menthacontrols.menthapp_client_new.model.enums.RoomTypeEnum;
 
 import org.json.JSONArray;

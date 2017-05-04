@@ -1,4 +1,4 @@
-package com.smarthome.menthacontrols.menthapp_client_new.model;
+package com.smarthome.menthacontrols.menthapp_client_new.request.request_helpers;
 
 
 import com.smarthome.menthacontrols.menthapp_client_new.model.enums.RoomTypeEnum;

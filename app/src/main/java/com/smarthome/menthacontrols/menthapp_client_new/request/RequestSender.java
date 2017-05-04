@@ -10,7 +10,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
-import com.smarthome.menthacontrols.menthapp_client_new.model.TransferObject;
+import com.smarthome.menthacontrols.menthapp_client_new.request.request_helpers.TransferObject;
 import com.smarthome.menthacontrols.menthapp_client_new.request.request_helpers.ButtonUpdater;
 import com.smarthome.menthacontrols.menthapp_client_new.request.request_helpers.JsonParser;
 
