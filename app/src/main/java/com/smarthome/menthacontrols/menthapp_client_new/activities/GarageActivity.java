@@ -1,44 +1,52 @@
 package com.smarthome.menthacontrols.menthapp_client_new.activities;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 
 import com.smarthome.menthacontrols.menthapp_client_new.R;
+import com.smarthome.menthacontrols.menthapp_client_new.model.BaseButton;
 import com.smarthome.menthacontrols.menthapp_client_new.model.button_subtypes.CeilingLampWidgetButton;
 import com.smarthome.menthacontrols.menthapp_client_new.model.button_subtypes.FanWidgetButton;
-import com.smarthome.menthacontrols.menthapp_client_new.model.button_subtypes.OpeningSensorWidgetButton;
 import com.smarthome.menthacontrols.menthapp_client_new.model.button_subtypes.WallLampWidgetButton;
+import com.smarthome.menthacontrols.menthapp_client_new.model.enums.ButtonStatus;
+import com.smarthome.menthacontrols.menthapp_client_new.request.RequestSender;
+import com.smarthome.menthacontrols.menthapp_client_new.request.request_helpers.ButtonUpdater;
+import com.smarthome.menthacontrols.menthapp_client_new.request.request_helpers.TransferObject;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import static com.smarthome.menthacontrols.menthapp_client_new.R.id.p_oli_10;
+import static com.smarthome.menthacontrols.menthapp_client_new.R.id.p_oli_40;
+import static com.smarthome.menthacontrols.menthapp_client_new.R.id.p_oli_41;
+import static com.smarthome.menthacontrols.menthapp_client_new.R.id.p_oli_42_1;
+import static com.smarthome.menthacontrols.menthapp_client_new.R.id.p_oli_42_2;
+import static com.smarthome.menthacontrols.menthapp_client_new.R.id.p_oli_42_3;
+import static com.smarthome.menthacontrols.menthapp_client_new.R.id.p_oli_42_4;
+import static com.smarthome.menthacontrols.menthapp_client_new.R.id.p_oli_43;
+import static com.smarthome.menthacontrols.menthapp_client_new.R.id.p_oli_44;
+import static com.smarthome.menthacontrols.menthapp_client_new.R.id.p_oli_45;
+import static com.smarthome.menthacontrols.menthapp_client_new.R.id.p_oli_46;
+import static com.smarthome.menthacontrols.menthapp_client_new.R.id.p_oli_7;
+import static com.smarthome.menthacontrols.menthapp_client_new.R.id.p_oli_8;
+import static com.smarthome.menthacontrols.menthapp_client_new.R.id.p_oli_k10;
+import static com.smarthome.menthacontrols.menthapp_client_new.R.id.p_oli_k12;
+import static com.smarthome.menthacontrols.menthapp_client_new.R.id.p_oli_k7_1;
+import static com.smarthome.menthacontrols.menthapp_client_new.R.id.p_oli_k7_2;
+import static com.smarthome.menthacontrols.menthapp_client_new.R.id.p_oli_k7b_1;
+import static com.smarthome.menthacontrols.menthapp_client_new.R.id.p_oli_k7b_2;
+import static com.smarthome.menthacontrols.menthapp_client_new.R.id.p_ve3;
 
 
 public class GarageActivity extends AppCompatActivity implements View.OnClickListener {
 
     private static final String TAG = "GarageActivity";
 
-    WallLampWidgetButton p_oli_k12;
-    WallLampWidgetButton p_oli_k7_1;
-    WallLampWidgetButton p_oli_k7_2;
-    WallLampWidgetButton p_oli_k7b_1;
-    WallLampWidgetButton p_oli_k7b_2;
-    WallLampWidgetButton p_oli_45;
-    WallLampWidgetButton p_oli_10;
-
-    CeilingLampWidgetButton p_oli_42_1;
-    CeilingLampWidgetButton p_oli_42_2;
-    CeilingLampWidgetButton p_oli_42_3;
-    CeilingLampWidgetButton p_oli_42_4;
-    CeilingLampWidgetButton p_oli_43;
-    CeilingLampWidgetButton p_oli_41;
-    CeilingLampWidgetButton p_oli_40;
-    CeilingLampWidgetButton p_oli_44;
-    CeilingLampWidgetButton p_oli_46;
-    CeilingLampWidgetButton p_oli_8;
-    CeilingLampWidgetButton p_oli_7;
-    CeilingLampWidgetButton p_oli_k10;
-
-    FanWidgetButton p_ve3;
+    private List<BaseButton> buttons;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,88 +56,125 @@ public class GarageActivity extends AppCompatActivity implements View.OnClickLis
         initButtons();
     }
 
+    private BaseButton getButtonByName(String name){
+
+        for(BaseButton button : this.buttons){
+            if(name.equals(button.getOwner())){
+                return button;
+            }
+        }
+        return null;
+    }
+
+    private void loadButtonsInBulk(final List<BaseButton> buttons) {
+
+        RequestSender.initializeButtonsInBulk(getApplicationContext(), new ButtonUpdater<List<TransferObject>>() {
+            @Override
+            public void updateStatus(List<TransferObject> transferObjects) {
+                Log.d(TAG, "updateStatus: " + transferObjects.toString());
+                for(TransferObject transferObject : transferObjects){
+                    BaseButton button = getButtonByName(transferObject.getName());
+                    Boolean status = transferObject.getWidgetStatus();
+
+                    if(button != null){
+                        if(status){
+                            button.setButtonStatus(ButtonStatus.ON);
+                        }
+                    }
+                }
+            }
+        });
+
+    }
+
     private void initButtons() {
 
-        p_oli_k12 = (WallLampWidgetButton) findViewById(R.id.p_oli_k12);
-//        p_oli_k12.setOwner("p_oli_k12");
-        p_oli_k12.setOnClickListener(this);
+        this.buttons = new ArrayList<>();
 
-        p_oli_k7_1 = (WallLampWidgetButton) findViewById(R.id.p_oli_k7_1);
-        p_oli_k7_1.setOwner("p_oli_k7");
-        p_oli_k7_1.setOnClickListener(this);
+        BaseButton currentButton = (WallLampWidgetButton) findViewById(p_oli_k12);
+        currentButton.setOwner("p_oli_k12");
+        this.buttons.add(currentButton);
 
-        p_oli_k7_2 = (WallLampWidgetButton) findViewById(R.id.p_oli_k7_2);
-        p_oli_k7_2.setOwner("p_oli_k7");
-        p_oli_k7_2.setOnClickListener(this);
+        currentButton = (WallLampWidgetButton) findViewById(p_oli_k7_1);
+        currentButton.setOwner("p_oli_k7");
+        this.buttons.add(currentButton);
 
-        p_oli_k7b_1 = (WallLampWidgetButton) findViewById(R.id.p_oli_k7b_1);
-        p_oli_k7b_1.setOwner("p_oli_k7b");
-        p_oli_k7b_1.setOnClickListener(this);
+        currentButton = (WallLampWidgetButton) findViewById(p_oli_k7_2);
+        currentButton.setOwner("p_oli_k7");
+        this.buttons.add(currentButton);
 
-        p_oli_k7b_2 = (WallLampWidgetButton) findViewById(R.id.p_oli_k7b_2);
-        p_oli_k7b_2.setOwner("p_oli_k7b");
-        p_oli_k7b_2.setOnClickListener(this);
+        currentButton = (WallLampWidgetButton) findViewById(p_oli_k7b_1);
+        currentButton.setOwner("p_oli_k7b");
+        this.buttons.add(currentButton);
 
-        p_oli_45 = (WallLampWidgetButton) findViewById(R.id.p_oli_45);
-//        p_oli_45.setOwner("p_oli_45");
-        p_oli_45.setOnClickListener(this);
+        currentButton = (WallLampWidgetButton) findViewById(p_oli_k7b_2);
+        currentButton.setOwner("p_oli_k7b");
+        this.buttons.add(currentButton);
 
-        p_oli_10 = (WallLampWidgetButton) findViewById(R.id.p_oli_10);
-//        p_oli_10.setOwner("p_oli_10");
-        p_oli_10.setOnClickListener(this);
+        currentButton = (WallLampWidgetButton) findViewById(p_oli_45);
+        currentButton.setOwner("p_oli_45");
+        this.buttons.add(currentButton);
 
-        p_oli_42_1 = (CeilingLampWidgetButton) findViewById(R.id.p_oli_42_1);
-//        p_oli_42_1.setOwner("p_oli_42_1");
-        p_oli_42_1.setOnClickListener(this);
+        currentButton = (WallLampWidgetButton) findViewById(p_oli_10);
+        currentButton.setOwner("p_oli_10");
+        this.buttons.add(currentButton);
 
-        p_oli_42_2 = (CeilingLampWidgetButton) findViewById(R.id.p_oli_42_2);
-//        p_oli_42_2.setOwner("p_oli_42_2");
-        p_oli_42_2.setOnClickListener(this);
+        currentButton = (CeilingLampWidgetButton) findViewById(p_oli_42_1);
+        currentButton.setOwner("p_oli_42");
+        this.buttons.add(currentButton);
 
-        p_oli_42_3 = (CeilingLampWidgetButton) findViewById(R.id.p_oli_42_3);
-//        p_oli_42_3.setOwner("p_oli_42_3");
-        p_oli_42_3.setOnClickListener(this);
+        currentButton = (CeilingLampWidgetButton) findViewById(p_oli_42_2);
+        currentButton.setOwner("p_oli_42");
+        this.buttons.add(currentButton);
 
-        p_oli_42_4 = (CeilingLampWidgetButton) findViewById(R.id.p_oli_42_4);
-//        p_oli_42_4.setOwner("p_oli_42_4");
-        p_oli_42_4.setOnClickListener(this);
+        currentButton = (CeilingLampWidgetButton) findViewById(p_oli_42_3);
+        currentButton.setOwner("p_oli_42");
+        this.buttons.add(currentButton);
 
-        p_oli_43 = (CeilingLampWidgetButton) findViewById(R.id.p_oli_43);
-//        p_oli_43.setOwner("p_oli_43");
-        p_oli_43.setOnClickListener(this);
+        currentButton = (CeilingLampWidgetButton) findViewById(p_oli_42_4);
+        currentButton.setOwner("p_oli_42");
+        this.buttons.add(currentButton);
 
-        p_oli_41 = (CeilingLampWidgetButton) findViewById(R.id.p_oli_41);
-//        p_oli_41.setOwner("p_oli_41");
-        p_oli_41.setOnClickListener(this);
+        currentButton = (CeilingLampWidgetButton) findViewById(p_oli_43);
+        currentButton.setOwner("p_oli_43");
+        this.buttons.add(currentButton);
 
-        p_oli_40 = (CeilingLampWidgetButton) findViewById(R.id.p_oli_40);
-//        p_oli_40.setOwner("p_oli_40");
-        p_oli_40.setOnClickListener(this);
+        currentButton = (CeilingLampWidgetButton) findViewById(p_oli_41);
+        currentButton.setOwner("p_oli_41");
+        this.buttons.add(currentButton);
 
-        p_oli_44 = (CeilingLampWidgetButton) findViewById(R.id.p_oli_44);
-//        p_oli_44.setOwner("p_oli_44");
-        p_oli_44.setOnClickListener(this);
+        currentButton = (CeilingLampWidgetButton) findViewById(p_oli_40);
+        currentButton.setOwner("p_oli_40");
+        this.buttons.add(currentButton);
 
-        p_oli_46 = (CeilingLampWidgetButton) findViewById(R.id.p_oli_46);
-//        p_oli_46.setOwner("p_oli_46");
-        p_oli_46.setOnClickListener(this);
+        currentButton = (CeilingLampWidgetButton) findViewById(p_oli_44);
+        currentButton.setOwner("p_oli_44");
+        this.buttons.add(currentButton);
 
-        p_oli_8 = (CeilingLampWidgetButton) findViewById(R.id.p_oli_8);
-//        p_oli_8.setOwner("p_oli_8");
-        p_oli_8.setOnClickListener(this);
+        currentButton = (CeilingLampWidgetButton) findViewById(p_oli_46);
+        currentButton.setOwner("p_oli_46");
+        this.buttons.add(currentButton);
 
-        p_oli_7 = (CeilingLampWidgetButton) findViewById(R.id.p_oli_7);
-//        p_oli_7.setOwner("p_oli_7");
-        p_oli_7.setOnClickListener(this);
+        currentButton = (CeilingLampWidgetButton) findViewById(p_oli_8);
+        currentButton.setOwner("p_oli_8");
+        this.buttons.add(currentButton);
 
-        p_oli_k10 = (CeilingLampWidgetButton) findViewById(R.id.p_oli_k10);
-//        p_oli_k10.setOwner("p_oli_k10");
-        p_oli_k10.setOnClickListener(this);
+        currentButton = (CeilingLampWidgetButton) findViewById(p_oli_7);
+        currentButton.setOwner("p_oli_7");
+        this.buttons.add(currentButton);
+
+        currentButton = (CeilingLampWidgetButton) findViewById(p_oli_k10);
+        currentButton.setOwner("p_oli_k10");
+        this.buttons.add(currentButton);
+
+        currentButton = (FanWidgetButton) findViewById(p_ve3);
+        currentButton.setOwner("p_ve3");
+        this.buttons.add(currentButton);
 
 
-        p_ve3 = (FanWidgetButton) findViewById(R.id.p_ve3);
-//        p_ve3.setOwner("p_ve3");
-        p_ve3.setOnClickListener(this);
+        for(Button button : buttons){
+            button.setOnClickListener(this);
+        }
 
     }
 
@@ -165,22 +210,10 @@ public class GarageActivity extends AppCompatActivity implements View.OnClickLis
     @Override
     public void onClick(View view) {
 
-
-        if(view instanceof WallLampWidgetButton){
-            WallLampWidgetButton button = (WallLampWidgetButton) view;
+        if(view instanceof BaseButton){
+            BaseButton button = (BaseButton) view;
             button.toggleButton();
-
-        }else if(view instanceof CeilingLampWidgetButton){
-            CeilingLampWidgetButton button = (CeilingLampWidgetButton) view;
-            button.toggleButton();
-
-        }else if(view instanceof FanWidgetButton){
-            FanWidgetButton button = (FanWidgetButton) view;
-            button.toggleButton();
-
-        }else if(view instanceof OpeningSensorWidgetButton){
-            OpeningSensorWidgetButton button = (OpeningSensorWidgetButton) view;
-
+            RequestSender.setOneButtonsStatus(getApplicationContext(), button);
         }else{
             Log.d(TAG, "Unknown widget");
         }
