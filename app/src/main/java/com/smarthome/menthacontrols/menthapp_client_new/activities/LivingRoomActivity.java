@@ -42,9 +42,9 @@ public class LivingRoomActivity extends AppCompatActivity implements View.OnClic
 
     private void loadButtonsInBulk(final List<WallLampWidgetButton> buttons) {
 
-        RequestSender.initializeButtonsInBulk(getApplicationContext(), new ButtonUpdater<TransferObject[]>() {
+        RequestSender.initializeButtonsInBulk(getApplicationContext(), new ButtonUpdater<List<TransferObject>>() {
             @Override
-            public void updateStatus(TransferObject[] dmUserses) {
+            public void updateStatus(List<TransferObject> dmUserses) {
                 Log.d(TAG, "updateStatus: " + dmUserses.toString());
                 Log.d(TAG, "updateStatus: " + "cicafül");
                 buttons.get(0).toggleButton();

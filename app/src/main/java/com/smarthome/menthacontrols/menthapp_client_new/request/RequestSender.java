@@ -12,12 +12,16 @@ import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.smarthome.menthacontrols.menthapp_client_new.model.TransferObject;
 import com.smarthome.menthacontrols.menthapp_client_new.request.request_helpers.ButtonUpdater;
+import com.smarthome.menthacontrols.menthapp_client_new.request.request_helpers.JsonParser;
+
+import java.util.List;
 
 import static com.android.volley.VolleyLog.TAG;
 
 public class RequestSender {
 
-    public static void initializeButtonsInBulk(Context context, final ButtonUpdater<TransferObject[]> onSuccess){
+//    public static void initializeButtonsInBulk(Context context, final ButtonUpdater<TransferObject[]> onSuccess){
+    public static void initializeButtonsInBulk(Context context, final ButtonUpdater<List<TransferObject>> onSuccess){
 
         String url = "http://mcss.blue:8080/widget/getBulkdata";
         RequestQueue requestQueue = Volley.newRequestQueue(context);
@@ -27,13 +31,8 @@ public class RequestSender {
                     @Override
                     public void onResponse(String response) {
 
-                        Log.d(TAG, "onResponse: " + response);
-                        TransferObject[] transferObjects = new TransferObject[1];
-                        Log.d(TAG, "onResponse: " + response);
-
-                        transferObjects[0] = new TransferObject();
-                        transferObjects[0].setName("cicafül");
-                        onSuccess.updateStatus(transferObjects);
+                    List<TransferObject> transferObjects = JsonParser.createListOfTransferObjectsFromJson(response);
+                    onSuccess.updateStatus(transferObjects);
 
                     }
                 }, new Response.ErrorListener() {

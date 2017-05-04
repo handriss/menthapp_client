@@ -1,4 +1,4 @@
-package com.smarthome.menthacontrols.menthapp_client_new.request;
+package com.smarthome.menthacontrols.menthapp_client_new.request.request_helpers;
 
 
 import android.util.Log;
@@ -6,13 +6,42 @@ import android.util.Log;
 import com.smarthome.menthacontrols.menthapp_client_new.model.TransferObject;
 import com.smarthome.menthacontrols.menthapp_client_new.model.enums.RoomTypeEnum;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class JsonParser {
 
     private static final String TAG = "JsonParser";
+
+    public static List<TransferObject> createListOfTransferObjectsFromJson(String result){
+
+        List<TransferObject> transferObjects = new ArrayList<>();
+
+        Log.d(TAG, "createListOfTransferObjectsFromJson: " + result);
+
+        JSONObject jObject = null;
+        try {
+
+            JSONArray jsonarray = new JSONArray(result);
+            for (int i = 0; i < jsonarray.length(); i++) {
+                JSONObject jsonobject = jsonarray.getJSONObject(i);
+                Log.d(TAG, "createListOfTransferObjectsFromJson: " + jsonobject);
+//                String name = jsonobject.getString("name");
+//                String url = jsonobject.getString("url");
+            }
+
+        } catch (JSONException e) {
+            Log.d(TAG, "createListOfTransferObjectsFromJson: An error happened during parsing the result string.");
+        }
+
+
+        return transferObjects;
+    }
 
     public static TransferObject createTransferObjectFromJson(String result){
 
