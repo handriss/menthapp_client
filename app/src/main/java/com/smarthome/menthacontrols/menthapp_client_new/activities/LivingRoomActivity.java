@@ -1,10 +1,12 @@
 package com.smarthome.menthacontrols.menthapp_client_new.activities;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.MotionEvent;
 import android.view.View;
+import android.widget.Toast;
 
 import com.smarthome.menthacontrols.menthapp_client_new.R;
 import com.smarthome.menthacontrols.menthapp_client_new.model.CeilingLampWidgetButton;
@@ -17,6 +19,10 @@ public class LivingRoomActivity extends AppCompatActivity implements View.OnClic
 
     private static final String TAG = "LivingRoomActivity";
 
+    private float x1,x2;
+    static final int MIN_DISTANCE = 150;
+
+
     WallLampWidgetButton btnFirst;
     CeilingLampWidgetButton btnSecond;
     FanWidgetButton btnThird;
@@ -27,6 +33,7 @@ public class LivingRoomActivity extends AppCompatActivity implements View.OnClic
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
 
         initButtons();
 
@@ -78,7 +85,7 @@ public class LivingRoomActivity extends AppCompatActivity implements View.OnClic
     }
 
     @Override
-    public void onClick(View view) {
+    public void onClick(View view){
 
 
         if(view instanceof WallLampWidgetButton){
@@ -100,5 +107,32 @@ public class LivingRoomActivity extends AppCompatActivity implements View.OnClic
             Log.d(TAG, "Unknown widget");
         }
 
+    }
+
+
+    @Override
+    public boolean onTouchEvent(MotionEvent event){
+
+        switch(event.getAction()){
+            case MotionEvent.ACTION_DOWN:
+                x1 = event.getX();
+                break;
+            case MotionEvent.ACTION_UP:
+                x2 = event.getX();
+                float deltaX = x2 - x1;
+
+                if (Math.abs(deltaX) > MIN_DISTANCE) {
+                    if (x2 > x1) {
+                        Toast.makeText(this, "Left to Right swipe [Next]", Toast.LENGTH_SHORT).show ();
+                    }
+
+                    else {
+                        Toast.makeText(this, "Right to Left swipe [Previous]", Toast.LENGTH_SHORT).show ();
+                    }
+
+                }
+                break;
+        }
+        return super.onTouchEvent(event);
     }
 }
