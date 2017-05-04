@@ -1,26 +1,22 @@
-package com.smarthome.menthacontrols.menthapp_client_new.activities;
+package com.smarthome.menthacontrols.menthapp_client_new.activities.subactivities;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
-import android.view.MotionEvent;
 import android.view.View;
-import android.widget.Toast;
 
 import com.smarthome.menthacontrols.menthapp_client_new.R;
+import com.smarthome.menthacontrols.menthapp_client_new.activities.BaseActivity;
 import com.smarthome.menthacontrols.menthapp_client_new.model.CeilingLampWidgetButton;
 import com.smarthome.menthacontrols.menthapp_client_new.model.FanWidgetButton;
 import com.smarthome.menthacontrols.menthapp_client_new.model.OpeningSensorWidgetButton;
 import com.smarthome.menthacontrols.menthapp_client_new.model.WallLampWidgetButton;
 
 
-public class LivingRoomActivity extends AppCompatActivity implements View.OnClickListener {
+public class LivingRoomActivity extends BaseActivity implements View.OnClickListener {
 
     private static final String TAG = "LivingRoomActivity";
 
-    private float x1,x2;
-    static final int MIN_DISTANCE = 150;
 
 
     WallLampWidgetButton btnFirst;
@@ -115,31 +111,4 @@ public class LivingRoomActivity extends AppCompatActivity implements View.OnClic
 
     }
 
-
-    @Override
-    public boolean onTouchEvent(MotionEvent event){
-
-        switch(event.getAction()){
-            case MotionEvent.ACTION_DOWN:
-                x1 = event.getX();
-                break;
-            case MotionEvent.ACTION_UP:
-                x2 = event.getX();
-                float deltaX = x2 - x1;
-
-                if (Math.abs(deltaX) > MIN_DISTANCE) {
-                    if (x2 > x1) {
-                        Toast.makeText(this, "Left to Right swipe [Next]", Toast.LENGTH_SHORT).show ();
-                        this.changeToUtilities();
-                    }
-
-                    else {
-                        Toast.makeText(this, "Right to Left swipe [Previous]", Toast.LENGTH_SHORT).show ();
-                    }
-
-                }
-                break;
-        }
-        return super.onTouchEvent(event);
-    }
 }

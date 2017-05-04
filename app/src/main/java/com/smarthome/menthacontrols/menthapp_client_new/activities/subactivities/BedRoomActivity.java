@@ -1,30 +1,24 @@
-package com.smarthome.menthacontrols.menthapp_client_new.activities;
+package com.smarthome.menthacontrols.menthapp_client_new.activities.subactivities;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
-import android.view.MotionEvent;
 import android.view.View;
-import android.widget.Toast;
 
 import com.smarthome.menthacontrols.menthapp_client_new.R;
+import com.smarthome.menthacontrols.menthapp_client_new.activities.BaseActivity;
 
 
-public class UpstairsActivity extends AppCompatActivity {
+public class BedRoomActivity extends BaseActivity {
 
-    private float x1,x2;
-    static final int MIN_DISTANCE = 150;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_upstairs);
+        setContentView(R.layout.activity_bed_room);
     }
-
     public void changeToBedroom(View view){
         Intent intent = new Intent(this, BedRoomActivity.class);
         startActivity(intent);
-        overridePendingTransition(R.anim.leave_left_to_right, R.anim.enter_left_to_right);
     }
 
     public void changeToGarage(View view){
@@ -42,38 +36,13 @@ public class UpstairsActivity extends AppCompatActivity {
     public void changeToUpstairs(View view){
         Intent intent = new Intent(this, UpstairsActivity.class);
         startActivity(intent);
+        overridePendingTransition(R.anim.enter_right_to_left, R.anim.leave_right_to_left);
     }
 
     public void changeToUtilities(View view){
         Intent intent = new Intent(this, UtilitiesActivity.class);
         startActivity(intent);
         overridePendingTransition(R.anim.enter_right_to_left, R.anim.leave_right_to_left);
-
     }
 
-    @Override
-    public boolean onTouchEvent(MotionEvent event){
-
-        switch(event.getAction()){
-            case MotionEvent.ACTION_DOWN:
-                x1 = event.getX();
-                break;
-            case MotionEvent.ACTION_UP:
-                x2 = event.getX();
-                float deltaX = x2 - x1;
-
-                if (Math.abs(deltaX) > MIN_DISTANCE) {
-                    if (x2 > x1) {
-                        Toast.makeText(this, "Left to Right swipe [Next]", Toast.LENGTH_SHORT).show ();
-                    }
-
-                    else {
-                        Toast.makeText(this, "Right to Left swipe [Previous]", Toast.LENGTH_SHORT).show ();
-                    }
-
-                }
-                break;
-        }
-        return super.onTouchEvent(event);
-    }
 }

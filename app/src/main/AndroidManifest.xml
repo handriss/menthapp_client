@@ -9,17 +9,17 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
-        <activity android:name=".activities.LivingRoomActivity">
+        <activity android:name=".activities.subactivities.LivingRoomActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activities.BedRoomActivity" />
-        <activity android:name=".activities.UpstairsActivity" />
-        <activity android:name=".activities.GarageActivity" />
-        <activity android:name=".activities.UtilitiesActivity"/>
+        <activity android:name=".activities.subactivities.BedRoomActivity" />
+        <activity android:name=".activities.subactivities.UpstairsActivity" />
+        <activity android:name=".activities.subactivities.GarageActivity" />
+        <activity android:name=".activities.subactivities.UtilitiesActivity"/>
 
     </application>
 
