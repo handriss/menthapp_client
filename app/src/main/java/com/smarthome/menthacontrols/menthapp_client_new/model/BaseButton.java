@@ -53,4 +53,8 @@ public abstract class BaseButton extends AppCompatButton {
     public void setOwner(String owner) {
         this.owner = owner;
     }
+
+    public String getOwner(){
+        return this.owner;
+    }
 }
