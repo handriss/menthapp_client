@@ -3,7 +3,7 @@ package com.smarthome.menthacontrols.menthapp_client_new.request.request_helpers
 
 import java.io.Serializable;
 
-public interface MyRunnable<T> extends Serializable
+public interface ButtonUpdater<T> extends Serializable
 {
-    void run(T t);
+    void updateStatus(T t);
 }

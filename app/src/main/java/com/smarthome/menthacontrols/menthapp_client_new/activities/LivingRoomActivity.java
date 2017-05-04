@@ -3,7 +3,6 @@ package com.smarthome.menthacontrols.menthapp_client_new.activities;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.AppCompatButton;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -15,21 +14,20 @@ import com.smarthome.menthacontrols.menthapp_client_new.model.buttons.FanWidgetB
 import com.smarthome.menthacontrols.menthapp_client_new.model.buttons.OpeningSensorWidgetButton;
 import com.smarthome.menthacontrols.menthapp_client_new.model.buttons.WallLampWidgetButton;
 import com.smarthome.menthacontrols.menthapp_client_new.request.RequestSender;
-import com.smarthome.menthacontrols.menthapp_client_new.request.RequestSender_old;
-import com.smarthome.menthacontrols.menthapp_client_new.request.request_helpers.MyRunnable;
+import com.smarthome.menthacontrols.menthapp_client_new.request.request_helpers.ButtonUpdater;
 
 import java.util.ArrayList;
 import java.util.List;
 
 
-public class LivingRoomActivity extends AppCompatActivity implements View.OnClickListener, RequestSender_old.Updateable {
+public class LivingRoomActivity extends AppCompatActivity implements View.OnClickListener{
 
 //    ide kéne egy list az összes buttonról és az activitynek kéne implementálnia a OnDownloadCompleteHandler-t
 //    és ha kész, akkor a list alapján updatelnie a buttonokat
 
     private static final String TAG = "LivingRoomActivity";
 
-    private List<AppCompatButton> buttons;
+    private List<WallLampWidgetButton> buttons;
 
 
     @Override
@@ -38,21 +36,19 @@ public class LivingRoomActivity extends AppCompatActivity implements View.OnClic
         setContentView(R.layout.activity_main);
 
         initButtons();
-        loadButtonsInBulk();
-
-        RequestSender_old requestSender = new RequestSender_old();
-
-        requestSender.initializeButtonsInBulk(this.buttons);
+        loadButtonsInBulk(buttons);
 
     }
 
-    private void loadButtonsInBulk() {
+    private void loadButtonsInBulk(final List<WallLampWidgetButton> buttons) {
 
-        RequestSender.initializeButtonsInBulk(getApplicationContext(), new MyRunnable<TransferObject[]>() {
+        RequestSender.initializeButtonsInBulk(getApplicationContext(), new ButtonUpdater<TransferObject[]>() {
             @Override
-            public void run(TransferObject[] dmUserses) {
-                Log.d(TAG, "run: " + dmUserses.toString());
-                Log.d(TAG, "run: " + "cicafül");
+            public void updateStatus(TransferObject[] dmUserses) {
+                Log.d(TAG, "updateStatus: " + dmUserses.toString());
+                Log.d(TAG, "updateStatus: " + "cicafül");
+                buttons.get(0).toggleButton();
+                buttons.get(0).toggleButton();
             }
         });
 
@@ -122,10 +118,5 @@ public class LivingRoomActivity extends AppCompatActivity implements View.OnClic
             Log.d(TAG, "Unknown widget");
         }
 
-    }
-
-    @Override
-    public void updateViewOnDownloadComplete(List<TransferObject> transferObjects) {
-        Log.d(TAG, "updateViewOnDownloadComplete: " + transferObjects.toString());
     }
 }
