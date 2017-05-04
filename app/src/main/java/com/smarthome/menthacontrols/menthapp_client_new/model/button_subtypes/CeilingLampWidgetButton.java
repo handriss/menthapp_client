@@ -9,8 +9,8 @@ import com.smarthome.menthacontrols.menthapp_client_new.model.BaseButton;
 
 public class CeilingLampWidgetButton extends BaseButton{
 
-    private int onIcon = R.drawable.mlamp_yel;
-    private int offIcon = R.drawable.mlamp;
+    private final int onIcon = R.drawable.mlamp_yel;
+    private final int offIcon = R.drawable.mlamp;
 
 
     public CeilingLampWidgetButton(Context context) {

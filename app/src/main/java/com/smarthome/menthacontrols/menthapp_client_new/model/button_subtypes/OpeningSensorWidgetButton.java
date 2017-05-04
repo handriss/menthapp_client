@@ -11,8 +11,8 @@ import com.smarthome.menthacontrols.menthapp_client_new.model.enums.ButtonStatus
 public class OpeningSensorWidgetButton extends AppCompatButton {
 
     private ButtonStatus buttonStatus = ButtonStatus.OFF;
-    private static final int onIcon = R.drawable.os_red;
-    private static final int offIcon = R.drawable.os_grn;
+    private final int onIcon = R.drawable.os_red;
+    private final int offIcon = R.drawable.os_grn;
 
     public OpeningSensorWidgetButton(Context context) {
         super(context);

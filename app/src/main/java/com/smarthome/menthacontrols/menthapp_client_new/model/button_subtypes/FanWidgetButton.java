@@ -1,19 +1,16 @@
 package com.smarthome.menthacontrols.menthapp_client_new.model.button_subtypes;
 
 import android.content.Context;
-import android.support.v7.widget.AppCompatButton;
 import android.util.AttributeSet;
 
 import com.smarthome.menthacontrols.menthapp_client_new.R;
-import com.smarthome.menthacontrols.menthapp_client_new.model.enums.ButtonStatus;
+import com.smarthome.menthacontrols.menthapp_client_new.model.BaseButton;
 
 
-public class FanWidgetButton extends AppCompatButton{
+public class FanWidgetButton extends BaseButton{
 
-    private String owner;
-    private ButtonStatus buttonStatus = ButtonStatus.OFF;
-    private static final int onIcon = R.drawable.vent_yel;
-    private static final int offIcon = R.drawable.vent;
+    private final int onIcon = R.drawable.vent_yel;
+    private final int offIcon = R.drawable.vent;
 
     public FanWidgetButton(Context context) {
         super(context);
@@ -30,19 +27,14 @@ public class FanWidgetButton extends AppCompatButton{
         this.setBackgroundResource(offIcon);
     }
 
-    public void toggleButton(){
-
-        if(this.buttonStatus == ButtonStatus.ON){
-            this.buttonStatus = ButtonStatus.OFF;
-            setBackgroundResource(offIcon);
-        }else if(this.buttonStatus == ButtonStatus.OFF){
-            this.buttonStatus = ButtonStatus.ON;
-            setBackgroundResource(onIcon);
-        }
-
+    @Override
+    public int getOnIcon() {
+        return this.onIcon;
     }
 
-    public void setOwner(String owner) {
-        this.owner = owner;
+    @Override
+    public int getOffIcon() {
+        return this.offIcon;
     }
+
 }
