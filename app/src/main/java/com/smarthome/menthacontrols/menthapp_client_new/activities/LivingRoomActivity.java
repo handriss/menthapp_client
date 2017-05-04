@@ -11,7 +11,6 @@ import com.smarthome.menthacontrols.menthapp_client_new.R;
 import com.smarthome.menthacontrols.menthapp_client_new.model.BaseButton;
 import com.smarthome.menthacontrols.menthapp_client_new.model.button_subtypes.CeilingLampWidgetButton;
 import com.smarthome.menthacontrols.menthapp_client_new.model.button_subtypes.FanWidgetButton;
-import com.smarthome.menthacontrols.menthapp_client_new.model.button_subtypes.OpeningSensorWidgetButton;
 import com.smarthome.menthacontrols.menthapp_client_new.model.button_subtypes.WallLampWidgetButton;
 import com.smarthome.menthacontrols.menthapp_client_new.model.enums.ButtonStatus;
 import com.smarthome.menthacontrols.menthapp_client_new.request.RequestSender;
@@ -43,11 +42,9 @@ public class LivingRoomActivity extends AppCompatActivity implements View.OnClic
     }
 
     private BaseButton getButtonByName(String name){
-//        Log.d(TAG, "getButtonByName: " + name);
+
         for(BaseButton button : this.buttons){
-//            Log.d(TAG, "getButtonByName: " + button.getOwner());
             if(name.equals(button.getOwner())){
-//                Log.d(TAG, "getButtonByName: \n\nMEGVAGY!!" );
                 return button;
             }
         }
@@ -69,7 +66,6 @@ public class LivingRoomActivity extends AppCompatActivity implements View.OnClic
                             button.setButtonStatus(ButtonStatus.ON);
                         }
                     }
-
                 }
             }
         });
@@ -241,23 +237,10 @@ public class LivingRoomActivity extends AppCompatActivity implements View.OnClic
 
     @Override
     public void onClick(View view) {
-//        kéne csinálni egy basebutton osztályt (vagy interfacet)
 
-        if(view instanceof WallLampWidgetButton){
+        if(view instanceof BaseButton){
             WallLampWidgetButton button = (WallLampWidgetButton) view;
             button.toggleButton();
-
-        }else if(view instanceof CeilingLampWidgetButton){
-            CeilingLampWidgetButton button = (CeilingLampWidgetButton) view;
-            button.toggleButton();
-
-        }else if(view instanceof FanWidgetButton){
-            FanWidgetButton button = (FanWidgetButton) view;
-            button.toggleButton();
-
-        }else if(view instanceof OpeningSensorWidgetButton){
-            OpeningSensorWidgetButton button = (OpeningSensorWidgetButton) view;
-
         }else{
             Log.d(TAG, "Unknown widget");
         }
