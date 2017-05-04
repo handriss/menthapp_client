@@ -84,6 +84,12 @@ public class LivingRoomActivity extends AppCompatActivity implements View.OnClic
         overridePendingTransition(R.anim.enter_right_to_left, R.anim.leave_right_to_left);
     }
 
+    public void changeToUtilities(){
+        Intent intent = new Intent(this, UtilitiesActivity.class);
+        startActivity(intent);
+        overridePendingTransition(R.anim.enter_right_to_left, R.anim.leave_right_to_left);
+    }
+
     @Override
     public void onClick(View view){
 
@@ -124,6 +130,7 @@ public class LivingRoomActivity extends AppCompatActivity implements View.OnClic
                 if (Math.abs(deltaX) > MIN_DISTANCE) {
                     if (x2 > x1) {
                         Toast.makeText(this, "Left to Right swipe [Next]", Toast.LENGTH_SHORT).show ();
+                        this.changeToUtilities();
                     }
 
                     else {
