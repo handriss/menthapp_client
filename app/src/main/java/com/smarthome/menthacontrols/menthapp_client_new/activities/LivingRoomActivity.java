@@ -239,8 +239,9 @@ public class LivingRoomActivity extends AppCompatActivity implements View.OnClic
     public void onClick(View view) {
 
         if(view instanceof BaseButton){
-            WallLampWidgetButton button = (WallLampWidgetButton) view;
+            BaseButton button = (BaseButton) view;
             button.toggleButton();
+            RequestSender.setOneButtonsStatus(getApplicationContext(), button);
         }else{
             Log.d(TAG, "Unknown widget");
         }
