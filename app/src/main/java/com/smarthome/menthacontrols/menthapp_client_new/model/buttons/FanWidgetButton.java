@@ -10,6 +10,7 @@ import com.smarthome.menthacontrols.menthapp_client_new.model.enums.ButtonStatus
 
 public class FanWidgetButton extends AppCompatButton{
 
+    private String owner;
     private ButtonStatus buttonStatus = ButtonStatus.OFF;
     private static final int onIcon = R.drawable.vent_yel;
     private static final int offIcon = R.drawable.vent;
@@ -39,5 +40,9 @@ public class FanWidgetButton extends AppCompatButton{
             setBackgroundResource(onIcon);
         }
 
+    }
+
+    public void setOwner(String owner) {
+        this.owner = owner;
     }
 }

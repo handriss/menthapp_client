@@ -29,11 +29,45 @@ public class LivingRoomActivity extends AppCompatActivity implements View.OnClic
 
     private List<WallLampWidgetButton> buttons;
 
+    WallLampWidgetButton p_oli_k3_1;
+    WallLampWidgetButton p_oli_k3_2;
+    WallLampWidgetButton p_oli_k3b;
+    WallLampWidgetButton p_oli_1_1;
+    WallLampWidgetButton p_oli_1_2;
+    WallLampWidgetButton p_oli_k3_3;
+    WallLampWidgetButton p_oli_14;
+    WallLampWidgetButton p_oli_k2_1;
+    WallLampWidgetButton p_oli_10;
+    WallLampWidgetButton p_oli_4;
+    WallLampWidgetButton p_oli_k2_2;
+    WallLampWidgetButton p_oli_k2b;
+    WallLampWidgetButton p_oli_6;
+    WallLampWidgetButton p_oli_kulso_1;
+    WallLampWidgetButton p_oli_kulso_2;
+    WallLampWidgetButton p_oli_k5_1;
+    WallLampWidgetButton p_oli_k5_2;
+    WallLampWidgetButton p_oli_k5_3;
+
+    CeilingLampWidgetButton p_oli_k1;
+    CeilingLampWidgetButton p_oli_18_1;
+    CeilingLampWidgetButton p_oli_18_2;
+    CeilingLampWidgetButton p_oli_17_1;
+    CeilingLampWidgetButton p_oli_17_2;
+    CeilingLampWidgetButton p_oli_40;
+    CeilingLampWidgetButton p_oli_2;
+    CeilingLampWidgetButton p_oli_11;
+    CeilingLampWidgetButton p_oli_5;
+    CeilingLampWidgetButton p_oli_12;
+    CeilingLampWidgetButton p_oli_13;
+    CeilingLampWidgetButton p_oli_7;
+
+    FanWidgetButton p_ve3;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_living_room);
 
         initButtons();
         loadButtonsInBulk(buttons);
@@ -57,10 +91,145 @@ public class LivingRoomActivity extends AppCompatActivity implements View.OnClic
 
     private void initButtons() {
 
+//        TODO: put all buttons into a list in all activities
         this.buttons = new ArrayList<>();
 
-        this.buttons.add((WallLampWidgetButton) findViewById(R.id.btnFirst));
-        this.buttons.add((WallLampWidgetButton) findViewById(R.id.btnSecond));
+//        this.buttons.add((WallLampWidgetButton) findViewById(R.id.btnFirst));
+//        this.buttons.add((WallLampWidgetButton) findViewById(R.id.btnSecond));
+
+        p_oli_1_1 = (WallLampWidgetButton) findViewById(R.id.p_oli_1_1);
+        p_oli_1_1.setOwner("p_oli_1");
+        p_oli_1_1.setOnClickListener(this);
+
+        p_oli_k3_1 = (WallLampWidgetButton) findViewById(R.id.p_oli_k3_1);
+        p_oli_k3_1.setOwner("p_oli_k3");
+        p_oli_k3_1.setOnClickListener(this);
+
+        p_oli_k3b = (WallLampWidgetButton) findViewById(R.id.p_oli_k3b);
+        p_oli_k3b.setOwner("p_oli_k3b");
+        p_oli_k3b.setOnClickListener(this);
+
+        p_oli_k3_2 = (WallLampWidgetButton) findViewById(R.id.p_oli_k3_2);
+        p_oli_k3_2.setOwner("p_oli_k3");
+        p_oli_k3_2.setOnClickListener(this);
+
+        p_oli_1_2 = (WallLampWidgetButton) findViewById(R.id.p_oli_1_2);
+        p_oli_1_2.setOwner("p_oli_1");
+        p_oli_1_2.setOnClickListener(this);
+
+        p_oli_k3_3 = (WallLampWidgetButton) findViewById(R.id.p_oli_k3_3);
+        p_oli_k3_3.setOwner("p_oli_k3");
+        p_oli_k3_3.setOnClickListener(this);
+
+        p_oli_14 = (WallLampWidgetButton) findViewById(R.id.p_oli_14);
+        p_oli_14.setOwner("p_oli_14");
+        p_oli_14.setOnClickListener(this);
+
+        p_oli_k2_1 = (WallLampWidgetButton) findViewById(R.id.p_oli_k2_1);
+        p_oli_k2_1.setOwner("p_oli_k2");
+        p_oli_k2_1.setOnClickListener(this);
+
+        p_oli_10 = (WallLampWidgetButton) findViewById(R.id.p_oli_10);
+        p_oli_10.setOwner("p_oli_10");
+        p_oli_10.setOnClickListener(this);
+
+        p_oli_4 = (WallLampWidgetButton) findViewById(R.id.p_oli_4);
+        p_oli_4.setOwner("p_oli_4");
+        p_oli_4.setOnClickListener(this);
+
+
+        p_oli_k2_2 = (WallLampWidgetButton) findViewById(R.id.p_oli_k2_2);
+        p_oli_k2_2.setOwner("p_oli_k2");
+        p_oli_k2_2.setOnClickListener(this);
+
+
+        p_oli_k2b = (WallLampWidgetButton) findViewById(R.id.p_oli_k2b);
+        p_oli_k2b.setOwner("p_oli_k2b");
+        p_oli_k2b.setOnClickListener(this);
+
+
+        p_oli_6 = (WallLampWidgetButton) findViewById(R.id.p_oli_6);
+        p_oli_6.setOwner("p_oli_6");
+        p_oli_6.setOnClickListener(this);
+
+
+        p_oli_kulso_1 = (WallLampWidgetButton) findViewById(R.id.p_oli_kulso_1);
+        p_oli_kulso_1.setOwner("p_oli_kulso");
+        p_oli_kulso_1.setOnClickListener(this);
+
+
+        p_oli_kulso_2 = (WallLampWidgetButton) findViewById(R.id.p_oli_kulso_2);
+        p_oli_kulso_2.setOwner("p_oli_kulso");
+        p_oli_kulso_2.setOnClickListener(this);
+
+
+        p_oli_k5_1 = (WallLampWidgetButton) findViewById(R.id.p_oli_k5_1);
+        p_oli_k5_1.setOwner("p_oli_k5");
+        p_oli_k5_1.setOnClickListener(this);
+
+
+        p_oli_k5_2 = (WallLampWidgetButton) findViewById(R.id.p_oli_k5_2);
+        p_oli_k5_2.setOwner("p_oli_k5");
+        p_oli_k5_2.setOnClickListener(this);
+
+
+        p_oli_k5_3 = (WallLampWidgetButton) findViewById(R.id.p_oli_k5_3);
+        p_oli_k5_3.setOwner("p_oli_k5");
+        p_oli_k5_3.setOnClickListener(this);
+
+
+        p_oli_k1 = (CeilingLampWidgetButton) findViewById(R.id.p_oli_k1);
+        p_oli_k1.setOwner("p_oli_k1");
+        p_oli_k1.setOnClickListener(this);
+
+        p_oli_18_1 = (CeilingLampWidgetButton) findViewById(R.id.p_oli_18_1);
+        p_oli_18_1.setOwner("p_oli_18");
+        p_oli_18_1.setOnClickListener(this);
+
+        p_oli_18_2 = (CeilingLampWidgetButton) findViewById(R.id.p_oli_18_2);
+        p_oli_18_2.setOwner("p_oli_18");
+        p_oli_18_2.setOnClickListener(this);
+
+        p_oli_17_1 = (CeilingLampWidgetButton) findViewById(R.id.p_oli_17_1);
+        p_oli_17_1.setOwner("p_oli_17");
+        p_oli_17_1.setOnClickListener(this);
+
+        p_oli_17_2 = (CeilingLampWidgetButton) findViewById(R.id.p_oli_17_2);
+        p_oli_17_2.setOwner("p_oli_17");
+        p_oli_17_2.setOnClickListener(this);
+
+        p_oli_40 = (CeilingLampWidgetButton) findViewById(R.id.p_oli_40);
+        p_oli_40.setOwner("p_oli_40");
+        p_oli_40.setOnClickListener(this);
+
+        p_oli_2 = (CeilingLampWidgetButton) findViewById(R.id.p_oli_2);
+        p_oli_2.setOwner("p_oli_2");
+        p_oli_2.setOnClickListener(this);
+
+        p_oli_11 = (CeilingLampWidgetButton) findViewById(R.id.p_oli_11);
+        p_oli_11.setOwner("p_oli_11");
+        p_oli_11.setOnClickListener(this);
+
+        p_oli_5 = (CeilingLampWidgetButton) findViewById(R.id.p_oli_5);
+        p_oli_5.setOwner("p_oli_5");
+        p_oli_5.setOnClickListener(this);
+
+        p_oli_12 = (CeilingLampWidgetButton) findViewById(R.id.p_oli_12);
+        p_oli_12.setOwner("p_oli_12");
+        p_oli_12.setOnClickListener(this);
+
+        p_oli_13 = (CeilingLampWidgetButton) findViewById(R.id.p_oli_13);
+        p_oli_13.setOwner("p_oli_13");
+        p_oli_13.setOnClickListener(this);
+
+        p_oli_7 = (CeilingLampWidgetButton) findViewById(R.id.p_oli_7);
+        p_oli_7.setOwner("p_oli_7");
+        p_oli_7.setOnClickListener(this);
+
+        p_ve3 = (FanWidgetButton) findViewById(R.id.p_ve3);
+        p_ve3.setOwner("p_ve3");
+        p_ve3.setOnClickListener(this);
+
 
         for(Button button : buttons){
             button.setOnClickListener(this);

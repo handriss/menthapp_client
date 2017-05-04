@@ -10,6 +10,8 @@ import com.smarthome.menthacontrols.menthapp_client_new.model.enums.ButtonStatus
 
 public class CeilingLampWidgetButton extends AppCompatButton{
 
+
+    private String owner;
     private ButtonStatus buttonStatus = ButtonStatus.OFF;
     private static final int onIcon = R.drawable.mlamp_yel;
     private static final int offIcon = R.drawable.mlamp;
@@ -51,5 +53,9 @@ public class CeilingLampWidgetButton extends AppCompatButton{
             setBackgroundResource(onIcon);
         }
 
+    }
+
+    public void setOwner(String owner) {
+        this.owner = owner;
     }
 }

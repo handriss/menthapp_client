@@ -10,6 +10,7 @@ import com.smarthome.menthacontrols.menthapp_client_new.model.enums.ButtonStatus
 
 public class WallLampWidgetButton extends AppCompatButton {
 
+    private String owner;
     private ButtonStatus buttonStatus = ButtonStatus.OFF;
     private static final int onIcon = R.drawable.flamp_yel;
     private static final int offIcon = R.drawable.flamp;
@@ -41,13 +42,18 @@ public class WallLampWidgetButton extends AppCompatButton {
 
     }
 
+
     public void updateStatus(Boolean status) {
-        if(status){
+        if (status) {
             this.buttonStatus = ButtonStatus.ON;
             setBackgroundResource(onIcon);
-        }else{
+        } else {
             this.buttonStatus = ButtonStatus.OFF;
             setBackgroundResource(offIcon);
         }
+
+    }
+    public void setOwner(String owner) {
+        this.owner = owner;
     }
 }
