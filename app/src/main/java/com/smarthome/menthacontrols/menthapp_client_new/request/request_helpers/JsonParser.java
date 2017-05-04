@@ -30,9 +30,12 @@ public class JsonParser {
             JSONArray jsonarray = new JSONArray(result);
             for (int i = 0; i < jsonarray.length(); i++) {
                 JSONObject jsonobject = jsonarray.getJSONObject(i);
-                Log.d(TAG, "createListOfTransferObjectsFromJson: " + jsonobject);
-//                String name = jsonobject.getString("name");
-//                String url = jsonobject.getString("url");
+
+                TransferObject transferObject = new TransferObject();
+                transferObject.setName(jsonobject.getString("name"));
+                transferObject.setWidgetStatus(jsonobject.getBoolean("widgetStatus"));
+                transferObject.setRoomTypeEnum(RoomTypeEnum.valueOf(jsonobject.getString("roomTypeEnum")));
+                transferObjects.add(transferObject);
             }
 
         } catch (JSONException e) {

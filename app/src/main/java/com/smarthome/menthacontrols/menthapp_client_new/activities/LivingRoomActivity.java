@@ -44,11 +44,12 @@ public class LivingRoomActivity extends AppCompatActivity implements View.OnClic
 
         RequestSender.initializeButtonsInBulk(getApplicationContext(), new ButtonUpdater<List<TransferObject>>() {
             @Override
-            public void updateStatus(List<TransferObject> dmUserses) {
-                Log.d(TAG, "updateStatus: " + dmUserses.toString());
-                Log.d(TAG, "updateStatus: " + "cicafül");
-                buttons.get(0).toggleButton();
-                buttons.get(0).toggleButton();
+            public void updateStatus(List<TransferObject> transferObjects) {
+                Log.d(TAG, "updateStatus: " + transferObjects.toString());
+//                Log.d(TAG, "updateStatus: " + dmUserses.toString());
+//                Log.d(TAG, "updateStatus: " + "cicafül");
+//                buttons.get(0).toggleButton();
+//                buttons.get(0).toggleButton();
             }
         });
 
