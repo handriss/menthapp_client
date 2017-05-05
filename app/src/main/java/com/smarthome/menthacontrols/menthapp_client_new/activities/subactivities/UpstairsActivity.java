@@ -1,26 +1,20 @@
-package com.smarthome.menthacontrols.menthapp_client_new.activities;
+package com.smarthome.menthacontrols.menthapp_client_new.activities.subactivities;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
 import com.smarthome.menthacontrols.menthapp_client_new.R;
+import com.smarthome.menthacontrols.menthapp_client_new.activities.BaseActivity;
 import com.smarthome.menthacontrols.menthapp_client_new.model.BaseButton;
 import com.smarthome.menthacontrols.menthapp_client_new.model.button_subtypes.CeilingLampWidgetButton;
 import com.smarthome.menthacontrols.menthapp_client_new.model.button_subtypes.WallLampWidgetButton;
-import com.smarthome.menthacontrols.menthapp_client_new.model.enums.ButtonStatus;
-import com.smarthome.menthacontrols.menthapp_client_new.request.RequestSender;
-import com.smarthome.menthacontrols.menthapp_client_new.request.request_helpers.ButtonUpdater;
-import com.smarthome.menthacontrols.menthapp_client_new.request.request_helpers.TransferObject;
 
 import java.util.ArrayList;
 import java.util.List;
 
-
-public class UpstairsActivity extends AppCompatActivity implements View.OnClickListener {
+public class UpstairsActivity extends BaseActivity{
 
     private static final String TAG = "UpstairsActivity";
 
@@ -32,37 +26,7 @@ public class UpstairsActivity extends AppCompatActivity implements View.OnClickL
         setContentView(R.layout.activity_upstairs);
 
         initButtons();
-    }
-
-    private BaseButton getButtonByName(String name){
-
-        for(BaseButton button : this.buttons){
-            if(name.equals(button.getOwner())){
-                return button;
-            }
-        }
-        return null;
-    }
-
-    private void loadButtonsInBulk(final List<BaseButton> buttons) {
-
-        RequestSender.initializeButtonsInBulk(getApplicationContext(), new ButtonUpdater<List<TransferObject>>() {
-            @Override
-            public void updateStatus(List<TransferObject> transferObjects) {
-                Log.d(TAG, "updateStatus: " + transferObjects.toString());
-                for(TransferObject transferObject : transferObjects){
-                    BaseButton button = getButtonByName(transferObject.getName());
-                    Boolean status = transferObject.getWidgetStatus();
-
-                    if(button != null){
-                        if(status){
-                            button.setButtonStatus(ButtonStatus.ON);
-                        }
-                    }
-                }
-            }
-        });
-
+        loadButtonsInBulk(buttons);
     }
 
 
@@ -135,6 +99,22 @@ public class UpstairsActivity extends AppCompatActivity implements View.OnClickL
         }
     }
 
+
+    @Override
+    public List<BaseButton> getButtons() {
+        return this.buttons;
+    }
+
+    @Override
+    public Class getActivityToTheLeft() {
+        return BedRoomActivity.class;
+    }
+
+    @Override
+    public Class getActivityToTheRight() {
+        return GarageActivity.class;
+    }
+
     public void changeToBedroom(View view){
         Intent intent = new Intent(this, BedRoomActivity.class);
         startActivity(intent);
@@ -166,17 +146,5 @@ public class UpstairsActivity extends AppCompatActivity implements View.OnClickL
     }
 
 
-    @Override
-    public void onClick(View view) {
 
-
-        if(view instanceof BaseButton){
-            BaseButton button = (BaseButton) view;
-            button.toggleButton();
-            RequestSender.setOneButtonsStatus(getApplicationContext(), button);
-        }else{
-            Log.d(TAG, "Unknown widget");
-        }
-
-    }
 }

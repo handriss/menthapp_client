@@ -1,21 +1,16 @@
-package com.smarthome.menthacontrols.menthapp_client_new.activities;
+package com.smarthome.menthacontrols.menthapp_client_new.activities.subactivities;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
 import com.smarthome.menthacontrols.menthapp_client_new.R;
+import com.smarthome.menthacontrols.menthapp_client_new.activities.BaseActivity;
 import com.smarthome.menthacontrols.menthapp_client_new.model.BaseButton;
 import com.smarthome.menthacontrols.menthapp_client_new.model.button_subtypes.CeilingLampWidgetButton;
 import com.smarthome.menthacontrols.menthapp_client_new.model.button_subtypes.FanWidgetButton;
 import com.smarthome.menthacontrols.menthapp_client_new.model.button_subtypes.WallLampWidgetButton;
-import com.smarthome.menthacontrols.menthapp_client_new.model.enums.ButtonStatus;
-import com.smarthome.menthacontrols.menthapp_client_new.request.RequestSender;
-import com.smarthome.menthacontrols.menthapp_client_new.request.request_helpers.ButtonUpdater;
-import com.smarthome.menthacontrols.menthapp_client_new.request.request_helpers.TransferObject;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,8 +18,7 @@ import java.util.List;
 import static com.smarthome.menthacontrols.menthapp_client_new.R.id.p_oli_k5_2;
 import static com.smarthome.menthacontrols.menthapp_client_new.R.id.p_oli_k5_3;
 
-
-public class LivingRoomActivity extends AppCompatActivity implements View.OnClickListener{
+public class LivingRoomActivity extends BaseActivity{
 
     private static final String TAG = "LivingRoomActivity";
 
@@ -36,41 +30,12 @@ public class LivingRoomActivity extends AppCompatActivity implements View.OnClic
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_living_room);
 
+
         initButtons();
         loadButtonsInBulk(buttons);
 
     }
 
-    private BaseButton getButtonByName(String name){
-
-        for(BaseButton button : this.buttons){
-            if(name.equals(button.getOwner())){
-                return button;
-            }
-        }
-        return null;
-    }
-
-    private void loadButtonsInBulk(final List<BaseButton> buttons) {
-
-        RequestSender.initializeButtonsInBulk(getApplicationContext(), new ButtonUpdater<List<TransferObject>>() {
-            @Override
-            public void updateStatus(List<TransferObject> transferObjects) {
-                Log.d(TAG, "updateStatus: " + transferObjects.toString());
-                for(TransferObject transferObject : transferObjects){
-                    BaseButton button = getButtonByName(transferObject.getName());
-                    Boolean status = transferObject.getWidgetStatus();
-
-                    if(button != null){
-                        if(status){
-                            button.setButtonStatus(ButtonStatus.ON);
-                        }
-                    }
-                }
-            }
-        });
-
-    }
 
     private void initButtons() {
 
@@ -206,6 +171,22 @@ public class LivingRoomActivity extends AppCompatActivity implements View.OnClic
         }
     }
 
+
+    @Override
+    public List<BaseButton> getButtons() {
+        return this.buttons;
+    }
+
+    @Override
+    public Class getActivityToTheLeft() {
+        return UtilitiesActivity.class;
+    }
+
+    @Override
+    public Class getActivityToTheRight() {
+        return BedRoomActivity.class;
+    }
+
     public void changeToBedroom(View view){
         Intent intent = new Intent(this, BedRoomActivity.class);
         startActivity(intent);
@@ -233,18 +214,5 @@ public class LivingRoomActivity extends AppCompatActivity implements View.OnClic
         Intent intent = new Intent(this, UtilitiesActivity.class);
         startActivity(intent);
         overridePendingTransition(R.anim.enter_right_to_left, R.anim.leave_right_to_left);
-    }
-
-    @Override
-    public void onClick(View view) {
-
-        if(view instanceof BaseButton){
-            BaseButton button = (BaseButton) view;
-            button.toggleButton();
-            RequestSender.setOneButtonsStatus(getApplicationContext(), button);
-        }else{
-            Log.d(TAG, "Unknown widget");
-        }
-
     }
 }
