@@ -61,8 +61,14 @@ public abstract class BaseActivity extends AppCompatActivity implements View.OnC
     public void onClick(View view) {
 
         if(view instanceof BaseButton){
+
             BaseButton button = (BaseButton) view;
-            button.toggleButton();
+            List<BaseButton> buttons = getAllButtonsByName(button.getOwner());
+
+            for(BaseButton currentButton : buttons){
+                currentButton.toggleButton();
+            }
+
             RequestSender.setOneButtonsStatus(getApplicationContext(), button);
         }else{
             Log.d(TAG, "Unknown widget");
@@ -89,6 +95,7 @@ public abstract class BaseActivity extends AppCompatActivity implements View.OnC
                 }
             }
         });
+
 
     }
 
