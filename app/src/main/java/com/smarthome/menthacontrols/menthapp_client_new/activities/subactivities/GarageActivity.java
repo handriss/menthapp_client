@@ -27,6 +27,7 @@ public class GarageActivity extends BaseActivity {
         setContentView(R.layout.activity_garage);
 
         initButtons();
+        loadButtonsInBulk(buttons);
     }
 
 

@@ -60,7 +60,7 @@ public class RequestSender {
 
     }
 
-    public static void setOneButtonsStatus(Context context, BaseButton baseButton){
+    public static void setOneButtonsStatus(Context context, final BaseButton baseButton){
 
         String status;
         if(baseButton.getButtonStatus() == ButtonStatus.ON){
@@ -76,8 +76,11 @@ public class RequestSender {
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
-
-                        Log.d(TAG, "onResponse: " + response);
+                    if(response.equals("Successfully changed the value")){
+                        Log.d(TAG, "Successfully updated the button with the name: " + baseButton.getOwner());
+                    }else{
+                        Log.d(TAG, "Couldn't update the button with the name: " + baseButton.getOwner());
+                    }
 
                     }
                 }, new Response.ErrorListener() {

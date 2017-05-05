@@ -26,6 +26,7 @@ public class UpstairsActivity extends BaseActivity{
         setContentView(R.layout.activity_upstairs);
 
         initButtons();
+        loadButtonsInBulk(buttons);
     }
 
 

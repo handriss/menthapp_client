@@ -14,6 +14,7 @@ import com.smarthome.menthacontrols.menthapp_client_new.request.RequestSender;
 import com.smarthome.menthacontrols.menthapp_client_new.request.request_helpers.ButtonUpdater;
 import com.smarthome.menthacontrols.menthapp_client_new.request.request_helpers.TransferObject;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public abstract class BaseActivity extends AppCompatActivity implements View.OnClickListener {
@@ -74,32 +75,34 @@ public abstract class BaseActivity extends AppCompatActivity implements View.OnC
         RequestSender.initializeButtonsInBulk(getApplicationContext(), new ButtonUpdater<List<TransferObject>>() {
             @Override
             public void updateStatus(List<TransferObject> transferObjects) {
-                Log.d(TAG, "updateStatus: " + transferObjects.toString());
-                for(TransferObject transferObject : transferObjects){
-                    BaseButton button = getButtonByName(transferObject.getName());
-                    Boolean status = transferObject.getWidgetStatus();
 
-                    if(button != null){
-                        if(status){
+                for(TransferObject transferObject : transferObjects){
+
+                    Boolean currentButtonsStatus = transferObject.getWidgetStatus();
+                    List<BaseButton> buttons = getAllButtonsByName(transferObject.getName());
+                    for(BaseButton button : buttons){
+                        if(currentButtonsStatus){
                             button.setButtonStatus(ButtonStatus.ON);
                         }
                     }
+
                 }
             }
         });
 
     }
 
-    private BaseButton getButtonByName(String name){
+    private List<BaseButton> getAllButtonsByName(String name){
+
+        List<BaseButton> buttonsByName = new ArrayList<>();
 
         for(BaseButton button : this.getButtons()){
             if(name.equals(button.getOwner())){
-                return button;
+                buttonsByName.add(button);
             }
         }
-        return null;
+        return buttonsByName;
     }
-
 
     public void changeToActivityToTheRight(){
         Intent intent = new Intent(this, this.getActivityToTheRight());
