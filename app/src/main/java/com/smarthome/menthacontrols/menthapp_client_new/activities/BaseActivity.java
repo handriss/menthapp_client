@@ -29,6 +29,7 @@ public abstract class BaseActivity extends AppCompatActivity implements View.OnC
     protected final int MIN_DISTANCE = 150;
     protected float x1;
     protected float x2;
+    private ActivityOderHandler activityOrderHandler = new ActivityOderHandler();
 
     public abstract List<BaseButton> getButtons();
 
@@ -46,10 +47,12 @@ public abstract class BaseActivity extends AppCompatActivity implements View.OnC
                 if (Math.abs(deltaX) > this.MIN_DISTANCE) {
                     if (x2 > x1) {
                         Toast.makeText(this, "Left to Right swipe [Next]", Toast.LENGTH_SHORT).show ();
+                        this.changeToActivityToTheRight();
                     }
 
                     else {
                         Toast.makeText(this, "Right to Left swipe [Previous]", Toast.LENGTH_SHORT).show ();
+                        this.changeToActivityToTheLeft();
                     }
 
                 }
@@ -101,6 +104,19 @@ public abstract class BaseActivity extends AppCompatActivity implements View.OnC
         }
         return null;
     }
+
+
+    public void changeToActivityToTheRight(){
+        Intent intent = new Intent(this, activityOrderHandler.getActivityToTheRight(this.getClass()));
+        startActivity(intent);
+    }
+
+
+    public void changeToActivityToTheLeft(){
+        Intent intent = new Intent(this, activityOrderHandler.getActivityToTheLeft(this.getClass()));
+        startActivity(intent);
+    }
+
 
     public void changeToBedroom(View view){
         Intent intent = new Intent(this, BedRoomActivity.class);
