@@ -12,7 +12,7 @@ import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.smarthome.menthacontrols.menthapp_client_new.model.BaseButton;
 import com.smarthome.menthacontrols.menthapp_client_new.model.enums.ButtonStatus;
-import com.smarthome.menthacontrols.menthapp_client_new.request.request_helpers.ButtonUpdater;
+import com.smarthome.menthacontrols.menthapp_client_new.request.request_helpers.ViewUpdater;
 import com.smarthome.menthacontrols.menthapp_client_new.request.request_helpers.JsonParser;
 import com.smarthome.menthacontrols.menthapp_client_new.request.request_helpers.TransferObject;
 
@@ -22,7 +22,7 @@ import static com.android.volley.VolleyLog.TAG;
 
 public class RequestSender {
 
-    public static void initializeButtonsInBulk(Context context, final ButtonUpdater<List<TransferObject>> onSuccess){
+    public static void initializeButtonsInBulk(Context context, final ViewUpdater<List<TransferObject>> onSuccess){
 
         String url = "http://mcss.blue:8080/widget/getBulkdata";
         RequestQueue requestQueue = Volley.newRequestQueue(context);
@@ -91,6 +91,10 @@ public class RequestSender {
         });
 
         requestQueue.add(stringRequest);
+    }
+
+    public static void getServiceStatus(){
+
     }
 
 }

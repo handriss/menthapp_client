@@ -11,17 +11,18 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
-        <activity android:name=".activities.subactivities.LivingRoomActivity">
+        <activity android:name=".activities.subactivities.LivingRoomActivity" android:screenOrientation="landscape">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activities.subactivities.BedRoomActivity" />
-        <activity android:name=".activities.subactivities.UpstairsActivity" />
-        <activity android:name=".activities.subactivities.GarageActivity" />
-        <activity android:name=".activities.subactivities.UtilitiesActivity"/>
+        <activity android:name=".activities.subactivities.BedRoomActivity" android:screenOrientation="landscape"/>
+        <activity android:name=".activities.subactivities.UpstairsActivity" android:screenOrientation="landscape"/>
+        <activity android:name=".activities.subactivities.GarageActivity" android:screenOrientation="landscape"/>
+        <activity android:name=".activities.subactivities.UtilitiesActivity" android:screenOrientation="landscape"/>
+
 
     </application>
 
