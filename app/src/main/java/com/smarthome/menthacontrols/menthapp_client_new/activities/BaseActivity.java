@@ -2,6 +2,8 @@ package com.smarthome.menthacontrols.menthapp_client_new.activities;
 
 
 import android.content.Intent;
+import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.MotionEvent;
@@ -10,8 +12,9 @@ import android.view.View;
 import com.smarthome.menthacontrols.menthapp_client_new.R;
 import com.smarthome.menthacontrols.menthapp_client_new.model.BaseButton;
 import com.smarthome.menthacontrols.menthapp_client_new.model.enums.ButtonStatus;
+import com.smarthome.menthacontrols.menthapp_client_new.request.ConnectionChecker;
 import com.smarthome.menthacontrols.menthapp_client_new.request.RequestSender;
-import com.smarthome.menthacontrols.menthapp_client_new.request.request_helpers.ButtonUpdater;
+import com.smarthome.menthacontrols.menthapp_client_new.request.request_helpers.ViewUpdater;
 import com.smarthome.menthacontrols.menthapp_client_new.request.request_helpers.TransferObject;
 
 import java.util.ArrayList;
@@ -28,6 +31,14 @@ public abstract class BaseActivity extends AppCompatActivity implements View.OnC
     public abstract List<BaseButton> getButtons();
     public abstract Class getActivityToTheLeft();
     public abstract Class getActivityToTheRight();
+
+    @Override
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+        ConnectionChecker connectionChecker = new ConnectionChecker(getApplicationContext());
+        connectionChecker.refreshConnectionStatus();
+    }
 
     @Override
     public boolean onTouchEvent(MotionEvent event){
@@ -78,7 +89,7 @@ public abstract class BaseActivity extends AppCompatActivity implements View.OnC
 
     protected void loadButtonsInBulk(final List<BaseButton> buttons) {
 
-        RequestSender.initializeButtonsInBulk(getApplicationContext(), new ButtonUpdater<List<TransferObject>>() {
+        RequestSender.initializeButtonsInBulk(getApplicationContext(), new ViewUpdater<List<TransferObject>>() {
             @Override
             public void updateStatus(List<TransferObject> transferObjects) {
 
