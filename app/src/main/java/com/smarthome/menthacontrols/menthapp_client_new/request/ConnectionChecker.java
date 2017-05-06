@@ -21,7 +21,7 @@ public class ConnectionChecker {
 
     public void refreshConnectionStatus(){
 
-        if(!this.getInternetStatus()){
+        if(this.getInternetStatus()){
             this.connectionStatus = ConnectionStatus.INTERNET;
         }else{
             this.connectionStatus = ConnectionStatus.NO_CONNECTION;
