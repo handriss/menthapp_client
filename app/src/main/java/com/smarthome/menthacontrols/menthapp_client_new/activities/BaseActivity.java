@@ -1,6 +1,8 @@
 package com.smarthome.menthacontrols.menthapp_client_new.activities;
 
 
+import android.app.AlarmManager;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -14,8 +16,8 @@ import com.smarthome.menthacontrols.menthapp_client_new.model.BaseButton;
 import com.smarthome.menthacontrols.menthapp_client_new.model.enums.ButtonStatus;
 import com.smarthome.menthacontrols.menthapp_client_new.request.ConnectionChecker;
 import com.smarthome.menthacontrols.menthapp_client_new.request.RequestSender;
-import com.smarthome.menthacontrols.menthapp_client_new.request.request_helpers.ViewUpdater;
 import com.smarthome.menthacontrols.menthapp_client_new.request.request_helpers.TransferObject;
+import com.smarthome.menthacontrols.menthapp_client_new.request.request_helpers.ViewUpdater;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -27,16 +29,28 @@ public abstract class BaseActivity extends AppCompatActivity implements View.OnC
     protected final int MIN_DISTANCE = 150;
     protected float x1;
     protected float x2;
+    ConnectionChecker connectionChecker;
+    AlarmManager alarmManager;
+    Context context;
 
     public abstract List<BaseButton> getButtons();
     public abstract Class getActivityToTheLeft();
     public abstract Class getActivityToTheRight();
 
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        ConnectionChecker connectionChecker = new ConnectionChecker(getApplicationContext());
+        this.context = getApplicationContext();
+
+        connectionChecker = new ConnectionChecker(getApplicationContext());
+        connectionChecker.refreshConnectionStatus();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
         connectionChecker.refreshConnectionStatus();
     }
 
