@@ -1,7 +1,6 @@
 package com.smarthome.menthacontrols.menthapp_client_new.activities;
 
 
-import android.app.AlarmManager;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -22,15 +21,14 @@ import com.smarthome.menthacontrols.menthapp_client_new.request.request_helpers.
 import java.util.ArrayList;
 import java.util.List;
 
-public abstract class BaseActivity extends AppCompatActivity implements View.OnClickListener {
+public abstract class BaseLiveActivity extends AppCompatActivity implements View.OnClickListener {
 
-    private static final String TAG = "BaseActivity";
+    private static final String TAG = "BaseLiveActivity";
 
     protected final int MIN_DISTANCE = 150;
     protected float x1;
     protected float x2;
     ConnectionChecker connectionChecker;
-    AlarmManager alarmManager;
     Context context;
 
     public abstract List<BaseButton> getButtons();

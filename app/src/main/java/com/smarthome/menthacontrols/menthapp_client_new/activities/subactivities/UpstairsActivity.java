@@ -6,7 +6,7 @@ import android.view.View;
 import android.widget.Button;
 
 import com.smarthome.menthacontrols.menthapp_client_new.R;
-import com.smarthome.menthacontrols.menthapp_client_new.activities.BaseActivity;
+import com.smarthome.menthacontrols.menthapp_client_new.activities.BaseLiveActivity;
 import com.smarthome.menthacontrols.menthapp_client_new.model.BaseButton;
 import com.smarthome.menthacontrols.menthapp_client_new.model.button_subtypes.CeilingLampWidgetButton;
 import com.smarthome.menthacontrols.menthapp_client_new.model.button_subtypes.WallLampWidgetButton;
@@ -14,7 +14,7 @@ import com.smarthome.menthacontrols.menthapp_client_new.model.button_subtypes.Wa
 import java.util.ArrayList;
 import java.util.List;
 
-public class UpstairsActivity extends BaseActivity{
+public class UpstairsActivity extends BaseLiveActivity {
 
     private static final String TAG = "UpstairsActivity";
 
