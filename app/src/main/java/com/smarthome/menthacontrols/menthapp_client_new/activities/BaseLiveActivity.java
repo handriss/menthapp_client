@@ -66,12 +66,17 @@ public abstract class BaseLiveActivity extends AppCompatActivity implements View
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
 
+        Intent intent;
+
         switch (item.getItemId()) {
             case R.id.live_view:
                 Log.d(TAG, "onOptionsItemSelected: Live view pressed");
                 break;
             case R.id.status_view:
                 Log.d(TAG, "onOptionsItemSelected: Status view pressed");
+                intent = new Intent(this, StatusActivity.class);
+                startActivity(intent);
+
                 break;
             case R.id.login_view:
                 Log.d(TAG, "onOptionsItemSelected: Login view pressed");
