@@ -12,4 +12,13 @@
     <string name="garage_description">Garázs</string>
     <string name="upstairs_description">Emelet</string>
     <string name="utilites_description">Gépészet</string>
+    <string name="title_activity_status">StatusActivity</string>
+    <string name="action_settings">Settings</string>
+    <string name="section_format">Hello World from section: %1$d</string>
+
+    <string name="live_view">Élőnézet</string>
+    <string name="status_view">Státuszok beállítása</string>
+    <string name="login">Bejelentkezési adatok</string>
+    <string name="settings">Beállítások</string>
+
 </resources>

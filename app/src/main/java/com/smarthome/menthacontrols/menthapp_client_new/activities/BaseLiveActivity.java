@@ -7,6 +7,8 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
 
@@ -44,6 +46,35 @@ public abstract class BaseLiveActivity extends AppCompatActivity implements View
 
         connectionChecker = new ConnectionChecker(getApplicationContext());
         connectionChecker.refreshConnectionStatus();
+    }
+
+    @Override
+    public boolean onPrepareOptionsMenu (Menu menu) {
+
+        menu.findItem(R.id.settings).setEnabled(false);
+        menu.findItem(R.id.login_view).setEnabled(false);
+        return true;
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+
+        getMenuInflater().inflate(R.menu.main_menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        Log.d(TAG, "onOptionsItemSelected called, JUHÚÚÚÚÚÚÚÚÚ!");
+        int id = item.getItemId();
+        Log.d(TAG, "onOptionsItemSelected: " + id);
+
+//        //noinspection SimplifiableIfStatement
+//        if (id == R.id.action_settings) {
+//            return true;
+//        }
+
+        return super.onOptionsItemSelected(item);
     }
 
     @Override
