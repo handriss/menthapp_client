@@ -140,11 +140,11 @@ public class BedRoomActivity extends BaseActivity {
         this.buttons.add(currentButton);
 
         currentButton = (FanWidgetButton) findViewById(R.id.p_ve1);
-        currentButton.setOwner("p_oli_p_ve1");
+        currentButton.setOwner("p_ve1");
         this.buttons.add(currentButton);
 
         currentButton = (FanWidgetButton) findViewById(R.id.p_ve2);
-        currentButton.setOwner("p_oli_p_ve2");
+        currentButton.setOwner("p_ve2");
         this.buttons.add(currentButton);
 
 
