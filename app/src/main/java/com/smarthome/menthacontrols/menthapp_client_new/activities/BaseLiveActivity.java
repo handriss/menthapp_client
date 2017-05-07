@@ -51,7 +51,7 @@ public abstract class BaseLiveActivity extends AppCompatActivity implements View
     @Override
     public boolean onPrepareOptionsMenu (Menu menu) {
 
-        menu.findItem(R.id.settings).setEnabled(false);
+        menu.findItem(R.id.settings_view).setEnabled(false);
         menu.findItem(R.id.login_view).setEnabled(false);
         return true;
     }
@@ -65,16 +65,23 @@ public abstract class BaseLiveActivity extends AppCompatActivity implements View
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        Log.d(TAG, "onOptionsItemSelected called, JUHÚÚÚÚÚÚÚÚÚ!");
-        int id = item.getItemId();
-        Log.d(TAG, "onOptionsItemSelected: " + id);
 
-//        //noinspection SimplifiableIfStatement
-//        if (id == R.id.action_settings) {
-//            return true;
-//        }
-
+        switch (item.getItemId()) {
+            case R.id.live_view:
+                Log.d(TAG, "onOptionsItemSelected: Live view pressed");
+                break;
+            case R.id.status_view:
+                Log.d(TAG, "onOptionsItemSelected: Status view pressed");
+                break;
+            case R.id.login_view:
+                Log.d(TAG, "onOptionsItemSelected: Login view pressed");
+                break;
+            case R.id.settings_view:
+                Log.d(TAG, "onOptionsItemSelected: Settings view clicked");
+                break;
+        }
         return super.onOptionsItemSelected(item);
+
     }
 
     @Override

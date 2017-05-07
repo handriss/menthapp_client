@@ -20,6 +20,6 @@
         android:title="@string/login"/>
 
     <item
-        android:id="@+id/settings"
+        android:id="@+id/settings_view"
         android:title="@string/settings"/>
 </menu>
