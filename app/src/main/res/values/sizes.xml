@@ -1,0 +1,5 @@
+<resources>
+    <integer name="button_height">70</integer>
+    <integer name="button_width">150</integer>
+    <integer name="button_margin">24</integer>
+</resources>

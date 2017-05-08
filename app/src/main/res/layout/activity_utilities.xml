@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.smarthome.menthacontrols.menthapp_client_new.activities.UtilitiesActivity">
+
+    <Button
+        android:id="@+id/buttonBedroom"
+        android:layout_width="160dp"
+        android:layout_height="70dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginRight="26dp"
+        android:layout_marginTop="8dp"
+        android:background="@android:color/darker_gray"
+        android:onClick="changeToBedroom"
+        android:text="@string/bedroom_button"
+        app:layout_constraintRight_toLeftOf="@+id/buttonUpstairs"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/buttonUpstairs"
+        android:layout_width="160dp"
+        android:layout_height="70dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="24dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:background="@android:color/darker_gray"
+        android:onClick="changeToUpstairs"
+        android:text="@string/upstairs_button"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/buttonGarage"
+        android:layout_width="160dp"
+        android:layout_height="70dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="8dp"
+        android:background="@android:color/darker_gray"
+        android:onClick="changeToGarage"
+        android:text="@string/garage_button"
+        app:layout_constraintLeft_toRightOf="@+id/buttonUpstairs"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/buttonUtilities"
+        android:layout_width="160dp"
+        android:layout_height="70dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="9dp"
+        android:background="@android:color/holo_blue_dark"
+        android:onClick="changeToUtilities"
+        android:text="@string/utilities_button"
+        app:layout_constraintLeft_toRightOf="@+id/buttonGarage"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/buttonLivingroom"
+        android:layout_width="160dp"
+        android:layout_height="70dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginRight="24dp"
+        android:layout_marginTop="8dp"
+        android:background="@android:color/darker_gray"
+        android:onClick="changeToLivingroom"
+        android:text="@string/living_room_button"
+        app:layout_constraintRight_toLeftOf="@+id/buttonBedroom"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/livingroom_background"
+        android:layout_width="780dp"
+        android:layout_height="390dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="0dp"
+        android:contentDescription="@string/utilites_description"
+        android:scaleType="fitXY"
+        android:src="@drawable/utilities"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonUpstairs" />
+
+</android.support.constraint.ConstraintLayout>

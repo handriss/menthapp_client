@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.smarthome.menthacontrols.menthapp_client_new.activities.UpstairsActivity">
+
+    <Button
+        android:id="@+id/buttonBedroom"
+        android:layout_width="160dp"
+        android:layout_height="70dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginRight="26dp"
+        android:layout_marginTop="8dp"
+        android:background="@android:color/darker_gray"
+        android:onClick="changeToBedroom"
+        android:text="@string/bedroom_button"
+        app:layout_constraintRight_toLeftOf="@+id/buttonUpstairs"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/buttonUpstairs"
+        android:layout_width="160dp"
+        android:layout_height="70dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="24dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:background="@android:color/holo_blue_dark"
+        android:onClick="changeToUpstairs"
+        android:text="@string/upstairs_button"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/buttonGarage"
+        android:layout_width="160dp"
+        android:layout_height="70dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="8dp"
+        android:background="@android:color/darker_gray"
+        android:onClick="changeToGarage"
+        android:text="@string/garage_button"
+        app:layout_constraintLeft_toRightOf="@+id/buttonUpstairs"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/buttonUtilities"
+        android:layout_width="160dp"
+        android:layout_height="70dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="9dp"
+        android:background="@android:color/darker_gray"
+        android:onClick="changeToUtilities"
+        android:text="@string/utilities_button"
+        app:layout_constraintLeft_toRightOf="@+id/buttonGarage"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/buttonLivingroom"
+        android:layout_width="160dp"
+        android:layout_height="70dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginRight="24dp"
+        android:layout_marginTop="8dp"
+        android:background="@android:color/darker_gray"
+        android:onClick="changeToLivingroom"
+        android:text="@string/living_room_button"
+        app:layout_constraintRight_toLeftOf="@+id/buttonBedroom"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/livingroom_background"
+        android:layout_width="780dp"
+        android:layout_height="390dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="0dp"
+        android:contentDescription="@string/upstairs_description"
+        android:scaleType="fitXY"
+        android:src="@drawable/upstairs"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonUpstairs" />
+
+    <com.smarthome.menthacontrols.menthapp_client_new.model.button_subtypes.WallLampWidgetButton
+        android:id="@+id/p_oli_k102_1"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        app:layout_constraintTop_toTopOf="@+id/livingroom_background"
+        android:layout_marginTop="58dp"
+        android:layout_marginLeft="174dp"
+        app:layout_constraintLeft_toLeftOf="@+id/livingroom_background" />
+
+    <com.smarthome.menthacontrols.menthapp_client_new.model.button_subtypes.WallLampWidgetButton
+        android:id="@+id/p_oli_k102_2"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_marginTop="76dp"
+        app:layout_constraintTop_toBottomOf="@+id/p_oli_k102_1"
+        android:layout_marginLeft="0dp"
+        app:layout_constraintLeft_toLeftOf="@+id/p_oli_k102_1" />
+
+    <com.smarthome.menthacontrols.menthapp_client_new.model.button_subtypes.WallLampWidgetButton
+        android:id="@+id/p_oli_k101_1"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_marginTop="212dp"
+        app:layout_constraintTop_toBottomOf="@+id/p_oli_k102_1"
+        android:layout_marginLeft="79dp"
+        app:layout_constraintLeft_toLeftOf="@+id/p_oli_k102_1" />
+
+    <com.smarthome.menthacontrols.menthapp_client_new.model.button_subtypes.WallLampWidgetButton
+        android:id="@+id/p_oli_k101_2"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_marginTop="212dp"
+        app:layout_constraintTop_toBottomOf="@+id/p_oli_k102_1"
+        android:layout_marginLeft="329dp"
+        app:layout_constraintLeft_toLeftOf="@+id/p_oli_k102_1" />
+
+    <com.smarthome.menthacontrols.menthapp_client_new.model.button_subtypes.WallLampWidgetButton
+        android:id="@+id/p_oli_k101b_1"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_marginTop="136dp"
+        app:layout_constraintTop_toBottomOf="@+id/p_oli_k102_1"
+        android:layout_marginLeft="79dp"
+        app:layout_constraintLeft_toLeftOf="@+id/p_oli_k102_1" />
+
+    <com.smarthome.menthacontrols.menthapp_client_new.model.button_subtypes.WallLampWidgetButton
+        android:id="@+id/p_oli_k101b_2"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_marginTop="140dp"
+        app:layout_constraintTop_toBottomOf="@+id/p_oli_k102_1"
+        android:layout_marginLeft="329dp"
+        app:layout_constraintLeft_toLeftOf="@+id/p_oli_k102_1" />
+
+    <com.smarthome.menthacontrols.menthapp_client_new.model.button_subtypes.WallLampWidgetButton
+        android:id="@+id/p_oli_104"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_marginTop="101dp"
+        app:layout_constraintTop_toBottomOf="@+id/p_oli_k102_1"
+        android:layout_marginLeft="178dp"
+        app:layout_constraintLeft_toLeftOf="@+id/p_oli_k102_1" />
+
+    <com.smarthome.menthacontrols.menthapp_client_new.model.button_subtypes.WallLampWidgetButton
+        android:id="@+id/p_oli_112"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_marginTop="66dp"
+        app:layout_constraintTop_toBottomOf="@+id/p_oli_k102_1"
+        android:layout_marginLeft="58dp"
+        app:layout_constraintLeft_toLeftOf="@+id/p_oli_k102_1" />
+
+    <com.smarthome.menthacontrols.menthapp_client_new.model.button_subtypes.WallLampWidgetButton
+        android:id="@+id/p_oli_109"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_marginTop="89dp"
+        app:layout_constraintTop_toBottomOf="@+id/p_oli_k102_1"
+        android:layout_marginLeft="277dp"
+        app:layout_constraintLeft_toLeftOf="@+id/p_oli_k102_1" />
+
+    <com.smarthome.menthacontrols.menthapp_client_new.model.button_subtypes.WallLampWidgetButton
+        android:id="@+id/p_oli_107"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_marginTop="7dp"
+        app:layout_constraintTop_toBottomOf="@+id/p_oli_k102_1"
+        android:layout_marginLeft="266dp"
+        app:layout_constraintLeft_toLeftOf="@+id/p_oli_k102_1" />
+
+    <com.smarthome.menthacontrols.menthapp_client_new.model.button_subtypes.WallLampWidgetButton
+        android:id="@+id/p_oli_102"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_marginLeft="213dp"
+        app:layout_constraintLeft_toLeftOf="@+id/p_oli_k102_1"
+        app:layout_constraintBottom_toBottomOf="@+id/p_oli_k102_1"
+        android:layout_marginBottom="8dp" />
+
+    <com.smarthome.menthacontrols.menthapp_client_new.model.button_subtypes.CeilingLampWidgetButton
+        android:id="@+id/p_oli_113"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_marginLeft="104dp"
+        app:layout_constraintLeft_toLeftOf="@+id/p_oli_k102_1"
+        android:layout_marginTop="23dp"
+        app:layout_constraintTop_toBottomOf="@+id/p_oli_k102_1" />
+
+
+    <com.smarthome.menthacontrols.menthapp_client_new.model.button_subtypes.CeilingLampWidgetButton
+        android:id="@+id/p_oli_103"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_marginLeft="199dp"
+        app:layout_constraintLeft_toLeftOf="@+id/p_oli_k102_1"
+        android:layout_marginTop="43dp"
+        app:layout_constraintTop_toBottomOf="@+id/p_oli_k102_1" />
+
+    <com.smarthome.menthacontrols.menthapp_client_new.model.button_subtypes.CeilingLampWidgetButton
+        android:id="@+id/p_oli_108"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_marginLeft="321dp"
+        app:layout_constraintLeft_toLeftOf="@+id/p_oli_k102_1"
+        android:layout_marginTop="23dp"
+        app:layout_constraintTop_toBottomOf="@+id/p_oli_k102_1" />
+
+
+    <com.smarthome.menthacontrols.menthapp_client_new.model.button_subtypes.CeilingLampWidgetButton
+        android:id="@+id/p_oli_k110"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_marginLeft="415dp"
+        app:layout_constraintLeft_toLeftOf="@+id/p_oli_k102_1"
+        android:layout_marginTop="31dp"
+        app:layout_constraintTop_toBottomOf="@+id/p_oli_k102_1" />
+
+</android.support.constraint.ConstraintLayout>
